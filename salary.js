@@ -8,7 +8,9 @@ const loadSalaryReport = () =>{
     fetch(`https://smart-soft.onrender.com/peoples/salary/report/?owner_id=${ownerId}`)
     .then(res => res.json())
     .then(reports => {
-      
+        if (reports.length > 0){
+            document.getElementById('empty').style.display = 'none';
+        }
         let i=0;
         reports.forEach((rep) =>{
             

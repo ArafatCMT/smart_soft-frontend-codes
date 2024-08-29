@@ -102,27 +102,35 @@
     <div class="height-90 bg-light">
       <!-- part 1 -->
       <div class="row mt-5 pt-3 pt-5 justify-content-center" style="gap: 50px; flex-wrap: wrap;">
-        <div class="card col-lg-3 col-md-12 col-sm-12 p-3 " style="background: #8b5cf6;">
+        <div class="card col-lg-3 col-md-12 col-sm-12 p-3 " style="background: #8b5cf6; box-shadow: 4px 4px 8px gray; ">
           <div class="card-body">
-            <h5 class="card-title" style="color: #fff;">Today Sold     </h5>
+            <div class="d-flex justify-content-between">
+              <h5 class="card-title" style="color: #fff;">Today Sold</h5>
+              <i class="fa-solid fa-file-invoice-dollar fs-5" style="color: #fff;"></i>
+            </div>
             <h6 class="card-subtitle mt-2 fs-5" id="sold" style="color: #fff;"></h6>
-            
           </div>
         </div>
 
-        <div class="card col-lg-3 col-md-12 col-sm-12 p-3" style="background: #14b8a6;">
+        <div class="card col-lg-3 col-md-12 col-sm-12 p-3" style="background: #14b8a6; box-shadow: 4px 4px 8px gray; ">
           <div class="card-body">
-            <h5 class="card-title" style="color: #fff;">Today Purchase</h5>
+            <div class="d-flex justify-content-between">
+              <h5 class="card-title" style="color: #fff;">Today Purchase</h5>
+              <i class="fa-solid fa-cart-shopping fs-5" style="color: #fff;"></i>
+            </div>
             <h6 class="card-subtitle mt-2 fs-5" id="purchase" style="color: #fff;"></h6>
             
             
           </div>
         </div>
 
-        <div class="card col-lg-3 col-md-12 col-sm-12 p-3" style="background: #ef4444; ">
+        <div class="card col-lg-3 col-md-12 col-sm-12 p-3" style="background: #ef4444; box-shadow: 4px 4px 8px gray; ">
           <div class="card-body">
-            <h5 class="card-title fs-5" style="color: #fff;">Today Sale Profit</h5>
-            <h6 class="card-subtitle mt-2 fs-5" id="profit" style="color: #fff;">Card subtitle</h6>     
+            <div class="d-flex justify-content-between">
+              <h5 class="card-title fs-5" style="color: #fff;">Today Sale Profit</h5>
+              <i class="fa-solid fa-dollar-sign fs-5" style="color: #fff;"></i>
+            </div>
+            <h6 class="card-subtitle mt-2 fs-5" id="profit" style="color: #fff;"></h6>     
           </div>
         </div>
       </div>
@@ -130,23 +138,32 @@
       
       <!-- part 2  -->
       <div class="row mt-5 pt-3 justify-content-center" style="gap: 50px; flex-wrap: wrap;">
-        <div class="card col-lg-3 col-md-12 col-sm-12 p-3" style="background: #0ea5e9; ">
+        <div class="card col-lg-3 col-md-12 col-sm-12 p-3" style="background: #0ea5e9; box-shadow: 4px 4px 8px gray; ">
           <div class="card-body">
-            <h5 class="card-title fs-5" style="color: #fff;">Today Receivable</h5>
+            <div class="d-flex justify-content-between">
+              <h5 class="card-title fs-5" style="color: #fff;">Total Receivable</h5>
+              <i class="fa-solid fa-registered fs-5" style="color: #fff;"></i>
+            </div>
             <h6 class="card-subtitle mt-2 fs-5" id="receive" style="color: #fff;"></h6>     
           </div>
         </div>
 
-        <div class="card col-lg-3 col-md-12 col-sm-12 p-3" style="background: #ec4899; ">
+        <div class="card col-lg-3 col-md-12 col-sm-12 p-3" style="background: #ec4899; box-shadow: 4px 4px 8px gray; ">
           <div class="card-body">
-            <h5 class="card-title fs-5" style="color: #fff;">Today Payable</h5>
+            <div class="d-flex justify-content-between">
+              <h5 class="card-title fs-5" style="color: #fff;">Total Payable</h5>
+              <i class="fa-brands fa-amazon-pay fs-5" style="color: #fff;"></i>
+            </div>
             <h6 class="card-subtitle mt-2 fs-5" id="payable" style="color: #fff;"></h6>     
           </div>
         </div>
 
-        <div class="card col-lg-3 col-md-12 col-sm-12 p-3" style="background: #22c55e; ">
+        <div class="card col-lg-3 col-md-12 col-sm-12 p-3" style="background: #22c55e; box-shadow: 4px 4px 8px gray;  ">
           <div class="card-body">
-            <h5 class="card-title fs-5" style="color: #fff;">Stock - Purchase Value</h5>
+            <div class="d-flex justify-content-between">
+              <h5 class="card-title fs-5" style="color: #fff;">Stock - Purchase Value</h5>
+              <i class="fa-solid fa-sack-dollar fs-5" style="color: #fff;"></i>
+            </div>
             <h6 class="card-subtitle mt-2 fs-5" id="stock_1" style="color: #fff;"></h6>     
           </div>
         </div>
@@ -156,23 +173,32 @@
 
       <!-- part 3  -->
       <div class="row mt-5 pt-3 justify-content-center" style="gap: 50px; flex-wrap: wrap;">
-        <div class="card col-lg-3 col-md-12 col-sm-12 p-3" style="background: #ea580c; ">
+        <div class="card col-lg-3 col-md-12 col-sm-12 p-3" style="background: #ea580c; box-shadow: 4px 4px 8px gray; ">
           <div class="card-body">
-            <h5 class="card-title fs-5" style="color: #fff;">Stock - Sale Value</h5>
+            <div class="d-flex justify-content-between">
+              <h5 class="card-title fs-5" style="color: #fff;">Stock - Sale Value</h5>
+              <i class="fa-solid fa-sack-dollar fs-5" style="color: #fff;"></i>
+            </div>
             <h6 class="card-subtitle mt-2 fs-5" id="stock_2" style="color: #fff;"></h6>     
           </div>
         </div>
 
-        <div class="card col-lg-3 col-md-12 col-sm-12 p-3" style="background: #737373; ">
+        <div class="card col-lg-3 col-md-12 col-sm-12 p-3" style="background: #737373; box-shadow: 4px 4px 8px gray; ">
           <div class="card-body">
-            <h5 class="card-title fs-5" style="color: #fff;">Total Customer</h5>
+            <div class="d-flex justify-content-between">
+              <h5 class="card-title fs-5" style="color: #fff;">Total Customer</h5>
+              <i class="fa-solid fa-user-group fs-5" style="color: #fff;"></i>
+            </div>
             <h6 class="card-subtitle mt-2 fs-5" id="customer" style="color: #fff;"></h6>     
           </div>
         </div>
 
-        <div class="card col-lg-3 col-md-12 col-sm-12 p-3" style="background: #c026d3; ">
+        <div class="card col-lg-3 col-md-12 col-sm-12 p-3" style="background: #c026d3; box-shadow: 4px 4px 8px gray; ">
           <div class="card-body">
-            <h5 class="card-title fs-5" style="color: #fff;">Total Supplier</h5>
+            <div class="d-flex justify-content-between">
+              <h5 class="card-title fs-5" style="color: #fff;">Total Supplier</h5>
+              <i class="fa-solid fa-user fs-5" style="color: #fff;"></i>
+            </div>
             <h6 class="card-subtitle mt-2 fs-5" id="supplier" style="color: #fff;"></h6>     
           </div>
         </div>
@@ -182,10 +208,13 @@
       <!-- part 4  -->
       <div class="row mt-5 pt-3 justify-content-center" style="gap: 50px; flex-wrap: wrap;">
 
-        <div class="card col-lg-3 col-md-12 col-sm-12 p-3" style="background: #d72222; ">
+        <div class="card col-lg-3 col-md-12 col-sm-12 p-3" style="background: #d72222; box-shadow: 4px 4px 8px gray; ">
           <div class="card-body">
-            <h5 class="card-title fs-5" style="color: #fff;">Total Product</h5>
-            <h6 class="card-subtitle mt-2 fs-5" id="product" style="color: #fff;">Card subtitle</h6>     
+            <div class="d-flex justify-content-between">
+              <h5 class="card-title fs-5" style="color: #fff;">Total Product</h5>
+              <i class="fa-solid fa-box-open fs-5" style="color: #fff;"></i>
+            </div>
+            <h6 class="card-subtitle mt-2 fs-5" id="product" style="color: #fff;"></h6>     
           </div>
         </div>
       </div>

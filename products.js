@@ -7,7 +7,9 @@ const loadProducts = () =>{
     fetch(`https://smart-soft.onrender.com/products/all/product/?owner_id=${ownerId}`)
     .then(res => res.json())
     .then(products => {
-        
+        if (products.length > 0){
+            document.getElementById('empty').style.display = 'none';
+        }
         products.forEach((product) =>{
             const tr = document.createElement('tr')
             

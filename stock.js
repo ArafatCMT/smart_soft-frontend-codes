@@ -8,6 +8,9 @@ const loadStock = () =>{
     .then(res => res.json())
     .then(stocks => {
         // console.log(stocks)
+        if (stocks.length > 0){
+            document.getElementById('empty').style.display = 'none';
+        }
         let i=0;
         stocks.forEach((stock) =>{
             const tr = document.createElement('tr')

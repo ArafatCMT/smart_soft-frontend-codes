@@ -7,6 +7,9 @@ const loadUnit = () =>{
     fetch(`https://smart-soft.onrender.com/products/all/unit/?owner_id=${ownerId}`)
     .then(res => res.json())
     .then(units => {
+        if (units.length > 0){
+            document.getElementById('empty').style.display = 'none';
+        }
         let i = 0;
         units.forEach((unit) => {
             i++;

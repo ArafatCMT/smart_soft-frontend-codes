@@ -7,6 +7,9 @@ const loadEmployee = () =>{
     fetch(`https://smart-soft.onrender.com/peoples/all/employee/?owner_id=${ownerId}`)
     .then(res => res.json())
     .then(empls => {
+        if (empls.length > 0){
+            document.getElementById('empty').style.display = 'none';
+        }
         let i = 0;
         empls.forEach((emp) => {
             i++;

@@ -7,6 +7,9 @@ const loadSupplier = () =>{
     fetch(`https://smart-soft.onrender.com/peoples/all/supplier/?owner_id=${ownerId}`)
     .then(res => res.json())
     .then(suppliers => {
+        if (suppliers.length > 0){
+            document.getElementById('empty').style.display = 'none';
+        }
         let i = 0;
         suppliers.forEach((supplier) => {
             i++;
@@ -38,6 +41,9 @@ const loadDueReport = () =>{
     fetch(`https://smart-soft.onrender.com/peoples/supplier/due/report/?owner_id=${ownerId}`)
     .then(res => res.json())
     .then(reports => {
+        if (reports.length > 0){
+            document.getElementById('empty').style.display = 'none';
+        }
         let i = 0;
         reports.forEach((report) => {
            

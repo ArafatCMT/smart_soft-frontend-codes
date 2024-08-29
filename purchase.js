@@ -7,6 +7,9 @@ const loadPurchaseReport = () =>{
     .then(res => res.json())
     .then(purchase => {
         // console.log(purchase)
+        if (purchase.length > 0){
+            document.getElementById('empty').style.display = 'none';
+        }
 
         let i = 0;
         purchase.forEach((pur) =>{

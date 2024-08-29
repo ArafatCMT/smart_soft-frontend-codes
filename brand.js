@@ -7,6 +7,9 @@ const loadbrand = () =>{
     fetch(`https://smart-soft.onrender.com/products/all/brand/?owner_id=${ownerId}`)
     .then(res => res.json())
     .then(brands => {
+        if (brands.length > 0){
+            document.getElementById('empty').style.display = 'none';
+        }
         let i = 0;
         brands.forEach((brand) => {
             // i++;

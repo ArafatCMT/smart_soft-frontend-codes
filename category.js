@@ -7,6 +7,10 @@ const loadCategory = () =>{
     fetch(`https://smart-soft.onrender.com/products/all/category/?owner_id=${ownerId}`)
     .then(res => res.json())
     .then(categoris => {
+
+        if (categoris.length > 0){
+            document.getElementById('empty').style.display = 'none';
+        }
         let i = 0;
         categoris.forEach((cat) => {
             

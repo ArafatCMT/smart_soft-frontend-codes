@@ -8,7 +8,11 @@ const loadSaleReport = () =>{
     fetch(`https://smart-soft.onrender.com/purchases/sale/report/?owner_id=${ownerId}`)
     .then(res => res.json())
     .then(sale => {
-        // console.log(sale.customer)
+        console.log(sale.length)
+
+        if (sale.length > 0){
+            document.getElementById('empty').style.display = 'none';
+        }
         let i=0;
         sale.forEach((sl)=>{
             const tr = document.createElement('tr')
@@ -63,8 +67,7 @@ const Display = () =>{
 
     fetch(`https://smart-soft.onrender.com/peoples/all/customer/?owner_id=${ownerId}`)
     .then(res => res.json())
-    .then(customers => {console.log(customers)
-
+    .then(customers => {
         const select = document.getElementById("customer")
 
         customers.forEach((cus) =>{
