@@ -10,36 +10,36 @@ fetch("navbar.html")
     const token = localStorage.getItem("authToken")
     // console.log(token)
 
-    if (token){
-        navLeftSideElement.innerHTML += `
-                            <li class="nav-item">
-                            <a class="nav-link active mx-lg-2" aria-current="page" href="./dashboard.html">Dashboard</a>
-                                </li>
-                            <li class="nav-item">
-                                <a class="nav-link mx-lg-2" href="#">About</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link mx-lg-2" href="#">Services</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link mx-lg-2" href="#">Portfolio</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link mx-lg-2" href="#">Contact</a>
-                            </li>
+    // if (token){
+    //     navLeftSideElement.innerHTML += `
+    //                         <li class="nav-item">
+    //                         <a class="nav-link active mx-lg-2" aria-current="page" href="./dashboard.html">Dashboard</a>
+    //                             </li>
+    //                         <li class="nav-item">
+    //                             <a class="nav-link mx-lg-2" href="#">About</a>
+    //                         </li>
+    //                         <li class="nav-item">
+    //                             <a class="nav-link mx-lg-2" href="#">Services</a>
+    //                         </li>
+    //                         <li class="nav-item">
+    //                             <a class="nav-link mx-lg-2" href="#">Portfolio</a>
+    //                         </li>
+    //                         <li class="nav-item">
+    //                             <a class="nav-link mx-lg-2" href="#">Contact</a>
+    //                         </li>
 
-                            `;
+    //                         `;
 
-        navRightSideElement.innerHTML +=`
+    //     navRightSideElement.innerHTML +=`
                             
-                            <li class="nav-but">
-                                <a class="btn btn-danger" onclick="handleLogout()">Logout</a>
-                            </li>
+    //                         <li class="nav-but">
+    //                             <a class="btn btn-danger" onclick="handleLogout()">Logout</a>
+    //                         </li>
                             
 
-                            `;
-    }
-    else{
+    //                         `;
+    // }
+    
         navLeftSideElement.innerHTML += `
                             <li class="nav-item">
                                 <a class="nav-link active mx-lg-2" aria-current="page" href="./index.html">Home</a>
@@ -64,5 +64,5 @@ fetch("navbar.html")
                                 <a href="./login.html" class="login-button">Login</a>
                             </li>
                             `;
-    }
+    
 })
