@@ -6,6 +6,7 @@
     <title>Smart Soft</title>
     <link rel="stylesheet" href="./sidebar.css" />
     <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./success.css" />
     
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
@@ -20,6 +21,11 @@
      rel="stylesheet"
      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
      crossorigin="anonymous"/>
+
+     <link
+      href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body id="body-pd">
     <header class="header" id="header">
@@ -164,7 +170,7 @@
               <input type="number" placeholder="Enter Purchase Cost" name="cost" id="const" required style="padding: 5px; border: 2px solid #34d399; border-radius: 5px; width: 100%;">
 
               <div class="text-end mt-3">
-                <button type="submit" class="btn ms-auto" style="background: #059669; color: #fff;">Add Product</button>
+                <button type="submit" class="btn ms-auto" id="tryMe" style="background: #059669; color: #fff;">Add Product</button>
               </div>
             </form>
           </div>
@@ -179,6 +185,9 @@
      <script>
       document.addEventListener("DOMContentLoaded", Display);
     </script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    
 
     <script>
       document.addEventListener("DOMContentLoaded", function (event) {

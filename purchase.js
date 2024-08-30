@@ -90,44 +90,64 @@ const Display = () =>{
     })
 }
 
-const addPurchase = (event) =>{
+const addPurchase = (event) => {
     event.preventDefault();
-    const id = localStorage.getItem("ownerId")
+    const id = localStorage.getItem("ownerId");
     const token = localStorage.getItem("authToken");
-
+  
     const form = document.getElementById("purchase-form");
     const formData = new FormData(form);
-
-    const supplier = formData.get('supplier')
-    const product = formData.get('product')
-    const quentity = formData.get('quentity')
-    const payable = formData.get('payable')
-    const paid = formData.get('paid')
-    
-    // console.log(supplier, product, quentity, payable, paid)
-
-    const PurchaseData = {
-        supplier:supplier.valueOf(),
-        product:product.valueOf(),
-        quentity:quentity,
-        payable:payable,
-        paid:paid,
-    }
-
-    // console.log(JSON.stringify(PurchaseData))
-    fetch(`https://smart-soft.onrender.com/purchases/product/${id}/`,{
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Token ${token}`,
-        },
-        body: JSON.stringify(PurchaseData),
+  
+    const supplier = formData.get('supplier');
+    const product = formData.get('product');
+    const quentity = formData.get('quentity');
+    const payable = formData.get('payable');
+    const paid = formData.get('paid');
+  
+    const purchaseData = {
+      supplier: supplier,
+      product: product,
+      quentity: quentity,
+      payable: payable,
+      paid: paid,
+    };
+  
+    fetch(`https://smart-soft.onrender.com/purchases/product/${id}/`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Token ${token}`,
+      },
+      body: JSON.stringify(purchaseData),
     })
-    .then((res) => res.json())
-    .then((data) =>{
-        alert("Purchase Successfully !")
-        (window.location.href = "./purchase.html")
-    } )
-    .catch((err) => console.log(err));
-}
+      .then((res) => res.json())
+      .then((data) => {
+        // Set a flag in sessionStorage indicating a successful purchase
+        sessionStorage.setItem('purchaseAdded', 'true');
+  
+        // Optionally reset the form if needed
+        form.reset();
+  
+        // Redirect to the purchase page to show the success message
+        window.location.href = "./purchase.html";
+      })
+      .catch((err) => console.log(err));
+  };
+  window.addEventListener('load', () => {
+    if (sessionStorage.getItem('purchaseAdded') === 'true') {
+      // Toastr settings for top-right position
+      toastr.options.positionClass = 'toast-top-right'; // Set the position to top right
+      toastr.options.extendedTimeOut = 0;
+      toastr.options.timeOut = 1000;
+      toastr.options.fadeOut = 250;
+      toastr.options.fadeIn = 250;
+      toastr.options.iconClass = ''; // Removes the icon
+
+      // Display the success message
+      toastr.success('Purchase completed successfully!');
+
+      // Clear the flag after displaying the message
+      sessionStorage.removeItem('purchaseAdded');
+    }
+  });
 loadPurchaseReport()

@@ -107,46 +107,67 @@ const Display = () =>{
     })
 }
 
-const addProduct = (event) =>{
+const addProduct = (event) => {
     event.preventDefault();
-    const id = localStorage.getItem("ownerId")
-    const token = localStorage.getItem('token')
-
+    const id = localStorage.getItem("ownerId");
+    const token = localStorage.getItem('authToken');
+  
     const form = document.getElementById("product-form");
     const formData = new FormData(form);
-
-    const name = formData.get('name')
-    const category = formData.get('category')
-    const brand = formData.get('brand')
-    const unit = formData.get('unit')
-    const price = formData.get('price')
-    const cost = formData.get('cost')
-    // console.log(category, name, brand, unit, price, cost)
-
-    const ProductData = {
-        name:name,
-        category:category.valueOf(),
-        brand:brand.valueOf(),
-        unit:unit.valueOf(),
-        sale_price:price,
-        purchase_cost:cost,
-    }
-
-    // console.log(JSON.stringify(ProductData))
-    fetch(`https://smart-soft.onrender.com/products/add/product/${id}/`,{
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Token ${token}`,
-        },
-        body: JSON.stringify(ProductData),
+  
+    const name = formData.get('name');
+    const category = formData.get('category');
+    const brand = formData.get('brand');
+    const unit = formData.get('unit');
+    const price = formData.get('price');
+    const cost = formData.get('cost');
+  
+    const productData = {
+      name: name,
+      category: category,
+      brand: brand,
+      unit: unit,
+      sale_price: price,
+      purchase_cost: cost,
+    };
+  
+    fetch(`https://smart-soft.onrender.com/products/add/product/${id}/`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Token ${token}`,
+      },
+      body: JSON.stringify(productData),
     })
-    .then((res) => res.json())
-    .then((data) =>{
-        alert("Product Added successfully")
-         (window.location.href = "./product_list.html")
-        })
-    .catch((err) => console.log(err));
-}
+      .then((res) => res.json())
+      .then((data) => {
+        // Set a flag in sessionStorage indicating a successful product addition
+        sessionStorage.setItem('productAdded', 'true');
+  
+        // Optionally reset the form if needed
+        form.reset();
+  
+        // Redirect to the product list page to show the success message
+        window.location.href = "./product_list.html";
+      })
+      .catch((err) => console.log(err));
+  };
+  window.addEventListener('load', () => {
+    if (sessionStorage.getItem('productAdded') === 'true') {
+      // Toastr settings for top-right position
+      toastr.options.positionClass = 'toast-top-right'; // Set the position to top right
+      toastr.options.extendedTimeOut = 0;
+      toastr.options.timeOut = 1000;
+      toastr.options.fadeOut = 250;
+      toastr.options.fadeIn = 250;
+      toastr.options.iconClass = ''; // Removes the icon
+
+      // Display the success message
+      toastr.success('Product added successfully!');
+
+      // Clear the flag after displaying the message
+      sessionStorage.removeItem('productAdded');
+    }
+  });
 
 loadProducts()

@@ -31,42 +31,62 @@ const loadEmployee = () =>{
         })
     })
 }
-const addEmployee = (event) =>{
+const addEmployee = (event) => {
     event.preventDefault();
     const form = document.getElementById("emp-form");
     const formData = new FormData(form);
-    const name = formData.get("name")
-    const email = formData.get("email")
-    const phone = formData.get("phone")
-    const address = formData.get("address")
-    const salary = formData.get("salary")
-    console.log(name)
+    const name = formData.get("name");
+    const email = formData.get("email");
+    const phone = formData.get("phone");
+    const address = formData.get("address");
+    const salary = formData.get("salary");
     const token = localStorage.getItem("authToken");
     const id = localStorage.getItem("ownerId");
-
+  
     const empData = {
-        name:name,
-        email:email,
-        phone:phone,
-        address:address,
-        salary:salary,
-    }
-
-    // console.log(JSON.stringify(categoryData))
-
-    fetch(`https://smart-soft.onrender.com/peoples/add/employee/${id}/`,{
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Token ${token}`,
-        },
-        body: JSON.stringify(empData),
+      name: name,
+      email: email,
+      phone: phone,
+      address: address,
+      salary: salary,
+    };
+  
+    fetch(`https://smart-soft.onrender.com/peoples/add/employee/${id}/`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Token ${token}`,
+      },
+      body: JSON.stringify(empData),
     })
-    .then((res) => res.json())
-    .then((data) =>{
-        alert("Employee Added Successfully!")
-        (window.location.href = "./employee.html")
-    } )
-    .catch((err) => console.log(err));
-}
+      .then((res) => res.json())
+      .then((data) => {
+        // Set a flag in sessionStorage indicating a successful submission
+        sessionStorage.setItem('employeeAdded', 'true');
+  
+        // Optionally reset the form if needed
+        form.reset();
+  
+        // Redirect to the employee page to show the success message
+        window.location.href = "./employee.html";
+      })
+      .catch((err) => console.log(err));
+  };
+  window.addEventListener('load', () => {
+    if (sessionStorage.getItem('employeeAdded') === 'true') {
+      // Toastr settings for top-right position
+      toastr.options.positionClass = 'toast-top-right'; // Set the position to top right
+      toastr.options.extendedTimeOut = 0;
+      toastr.options.timeOut = 1000;
+      toastr.options.fadeOut = 250;
+      toastr.options.fadeIn = 250;
+      toastr.options.iconClass = ''; // Removes the icon
+
+      // Display the success message
+      toastr.success('Employee added successfully!');
+
+      // Clear the flag after displaying the message
+      sessionStorage.removeItem('employeeAdded');
+    }
+  });
 loadEmployee()

@@ -93,86 +93,83 @@ const Display = () =>{
     })
 }
 
-const addSale = (event) =>{
-    event.preventDefault()
-    const id = localStorage.getItem("ownerId")
+const addSale = (event) => {
+    event.preventDefault();
+    const id = localStorage.getItem("ownerId");
     const token = localStorage.getItem("authToken");
-
+  
     const form = document.getElementById("sale-form");
     const formData = new FormData(form);
-
-    const cus = formData.get('customer')
-    const product = formData.get('product')
-    const quentity = formData.get('quentity')
-    const receivable = formData.get('receivable')
-    const paid = formData.get('paid')
-    
-    // console.log(supplier, product, quentity, payable, paid)
-
+  
+    const cus = formData.get('customer');
+    const product = formData.get('product');
+    const quentity = formData.get('quentity');
+    const receivable = formData.get('receivable');
+    const paid = formData.get('paid');
+  
     const saleData = {
-        customer:cus.valueOf(),
-        product:product.valueOf(),
-        quentity:quentity,
-        receivable:receivable,
-        paid:paid,
-    }
-
-    // console.log(JSON.stringify(saleData))
-    fetch(`https://smart-soft.onrender.com/stocks/check/${product.valueOf()}/`,{
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Token ${token}`,
-        },
+      customer: cus,
+      product: product,
+      quentity: quentity,
+      receivable: receivable,
+      paid: paid,
+    };
+  
+    fetch(`https://smart-soft.onrender.com/stocks/check/${product}/`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Token ${token}`,
+      },
     })
-    .then((res) => res.json())
-    .then((data) => {
-
-        if (data.available_stock >= quentity){
-            fetch(`https://smart-soft.onrender.com/purchases/sale/${id}/`,{
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                  Authorization: `Token ${token}`,
-                },
-                body: JSON.stringify(saleData),
-            })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.available_stock >= quentity) {
+          fetch(`https://smart-soft.onrender.com/purchases/sale/${id}/`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Token ${token}`,
+            },
+            body: JSON.stringify(saleData),
+          })
             .then((res) => res.json())
             .then((data) => {
-
-                alert("sale successfully")
-
-                (window.location.href = "./sale.html")
+              // Set a flag in sessionStorage indicating a successful sale
+              sessionStorage.setItem('saleAdded', 'true');
+  
+              // Optionally reset the form if needed
+              form.reset();
+  
+              // Redirect to the sale page to show the success message
+              window.location.href = "./sale.html";
             })
             .catch((err) => console.log(err));
+        } else {
+          alert("Not Available Stock!");
+          // Redirect to the sale page even if there's no stock
+          window.location.href = "./sale.html";
         }
-        else{
-            alert("Not Available Stock!")
-            (window.location.href = "./sale.html")
-        }
-    })
+      })
+      .catch((err) => console.log(err));
+  };
+  window.addEventListener('load', () => {
+    if (sessionStorage.getItem('saleAdded') === 'true') {
+      // Toastr settings for top-right position
+      toastr.options.positionClass = 'toast-top-right'; // Set the position to top right
+      toastr.options.extendedTimeOut = 0;
+      toastr.options.timeOut = 1000;
+      toastr.options.fadeOut = 250;
+      toastr.options.fadeIn = 250;
+      toastr.options.iconClass = ''; // Removes the icon
 
+      // Display the success message
+      toastr.success('Sale completed successfully!');
 
-
-    
-}
+      // Clear the flag after displaying the message
+      sessionStorage.removeItem('saleAdded');
+    }
+  });
 loadSaleReport()
 
 
-// from django.utils import timezone
-
-// def get_todays_orders(request):
-//     today = timezone.now().date()
-//     todays_orders = Order.objects.filter(order_date__date=today)
-
-// def get_todays_orders(request):
-//     today = timezone.now().date()
-//     todays_orders = Order.objects.filter(order_date=today)
-
-// def get_todays_orders(request):
-//     today = timezone.now().date()
-//     todays_orders = Order.objects.filter(order_date=today)
-
-//     def get_todays_orders(request):
-//     today = timezone.now().date()
-//     todays_orders = Order.objects.filter(order_date=today)
