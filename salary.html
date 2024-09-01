@@ -44,7 +44,7 @@
         <!-- <h2>Smart Soft</h2> -->
       </div>
       <div class="">
-        <h2>SmartSoft</h2>
+        <a href="./index.html" style="color: #1e293b; text-decoration: none;"><h2>SmartSoft</h2></a>
       </div>
       <div class="user--info">
         <a href="./profile.html"
@@ -180,170 +180,141 @@
     <!--Container Main start-->
     <div class="" style="margin-top: 65px">
       <h1 style="color: #374151; font-weight: 500">Employees Salary</h1>
-      <div class="d-flex" style="gap: 15px">
-        <a
-          href="./salary.html"
-          class="fs-6"
-          style="font-weight: 600; color: #1e293b"
-          >Employees Salary</a
-        >
-        <a
-          type="button"
-          class="fs-6"
-          data-bs-toggle="modal"
-          data-bs-target="#exampleModal"
-          style="font-weight: 600; color: #1e293b"
-          >+ New Employee Salary</a
-        >
+
+      <div class="row col-lg-12 col-md-12 col-sm-12 mt-4">
+        <div class="col-lg-4 col-md-12 col-sm-12 mb-3">
+          <div>
+            <h5 class="mt-1 mb-2">New Employee Salary</h5>
+          </div>
+          <form id="salary-form" onsubmit="addSalary(event)">
+            <p class="fs-6 mb-1 pb-1" style="font-weight: 500">Employee:</p>
+            <select
+              name="employee"
+              id="employee"
+              style="
+                padding: 5px;
+                border: 2px solid #34d399;
+                border-radius: 5px;
+                width: 100%;
+              "
+            ></select>
+            <p class="fs-6 mb-1 pb-1 mt-2" style="font-weight: 500">
+              Amount:
+            </p>
+            <input
+              type="number"
+              placeholder="Enter Amount"
+              name="amount"
+              id="amount"
+              required
+              style="
+                padding: 5px;
+                border: 2px solid #34d399;
+                border-radius: 5px;
+                width: 100%;
+              "
+            />
+
+            <div class="text-end mt-3">
+              <button
+                type="submit"
+                class="btn ms-auto"
+                id="tryMe"
+                style="background: #059669; color: #fff"
+              >
+                Payment
+              </button>
+            </div>
+          </form>
+        </div>
+        <div class="col-lg-8 col-md-12 col-sm-12 mb-3">
+          <div>
+            <h5 class="mt-3 mb-4">Employees Salary List</h5>
+          </div>
+          <div id="cat-table">
+            <div
+              class="table-responsive"
+              style="overflow-x: auto; -webkit-overflow-scrolling: touch"
+            >
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th
+                      scope="col"
+                      style="background: rgba(113, 99, 186); color: #fff"
+                    >
+                      #
+                    </th>
+                    <th
+                      scope="col"
+                      style="background: rgba(113, 99, 186); color: #fff"
+                    >
+                      Date
+                    </th>
+                    <th
+                      scope="col"
+                      style="background: rgba(113, 99, 186); color: #fff"
+                    >
+                      Name
+                    </th>
+                    <th
+                      scope="col"
+                      style="background: rgba(113, 99, 186); color: #fff"
+                    >
+                      Email
+                    </th>
+                    <th
+                      scope="col"
+                      style="background: rgba(113, 99, 186); color: #fff"
+                    >
+                      Phone
+                    </th>
+                    <th
+                      scope="col"
+                      style="background: rgba(113, 99, 186); color: #fff"
+                    >
+                      Address
+                    </th>
+                    <th
+                      scope="col"
+                      style="background: rgba(113, 99, 186); color: #fff"
+                    >
+                      Total Receivable
+                    </th>
+                    <th
+                      scope="col"
+                      style="background: rgba(113, 99, 186); color: #fff"
+                    >
+                      Paid
+                    </th>
+                    <th
+                      scope="col"
+                      style="background: rgba(113, 99, 186); color: #fff"
+                    >
+                      Due
+                    </th>
+                  </tr>
+                </thead>
+                <tbody id="tbody"></tbody>
+              </table>
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-12 mx-auto mt-2" id="empty">
+              <img
+                src="./images/empty-folder.png"
+                alt=""
+                class="img-fluid col-12"
+              />
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div>
-        <h6 class="mt-4 mb-3">Employees Salary List</h6>
-      </div>
-      <div id="cat-table">
-        <div
-          class="table-responsive"
-          style="overflow-x: auto; -webkit-overflow-scrolling: touch"
-        >
-          <table class="table">
-            <thead>
-              <tr>
-                <th
-                  scope="col"
-                  style="background: rgba(113, 99, 186); color: #fff"
-                >
-                  #
-                </th>
-                <th
-                  scope="col"
-                  style="background: rgba(113, 99, 186); color: #fff"
-                >
-                  Date
-                </th>
-                <th
-                  scope="col"
-                  style="background: rgba(113, 99, 186); color: #fff"
-                >
-                  Name
-                </th>
-                <th
-                  scope="col"
-                  style="background: rgba(113, 99, 186); color: #fff"
-                >
-                  Email
-                </th>
-                <th
-                  scope="col"
-                  style="background: rgba(113, 99, 186); color: #fff"
-                >
-                  Phone
-                </th>
-                <th
-                  scope="col"
-                  style="background: rgba(113, 99, 186); color: #fff"
-                >
-                  Address
-                </th>
-                <th
-                  scope="col"
-                  style="background: rgba(113, 99, 186); color: #fff"
-                >
-                  Total Receivable
-                </th>
-                <th
-                  scope="col"
-                  style="background: rgba(113, 99, 186); color: #fff"
-                >
-                  Paid
-                </th>
-                <th
-                  scope="col"
-                  style="background: rgba(113, 99, 186); color: #fff"
-                >
-                  Due
-                </th>
-              </tr>
-            </thead>
-            <tbody id="tbody"></tbody>
-          </table>
-        </div>
-        <div class="col-lg-2 col-md-4 col-sm-12 mx-auto mt-2" id="empty">
-          <img
-            src="./images/empty-folder.png"
-            alt=""
-            class="img-fluid col-12"
-          />
-        </div>
-      </div>
+      
     </div>
     <!--Container Main end-->
 
     <!-- Modal -->
-    <div
-      class="modal fade"
-      id="exampleModal"
-      tabindex="-1"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title fs-4" id="exampleModalLabel">
-              New Employee Salary
-            </h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <form id="salary-form" onsubmit="addSalary(event)">
-              <p class="fs-6 mb-1 pb-1" style="font-weight: 500">Employee:</p>
-              <select
-                name="employee"
-                id="employee"
-                style="
-                  padding: 5px;
-                  border: 2px solid #34d399;
-                  border-radius: 5px;
-                  width: 100%;
-                "
-              ></select>
-              <p class="fs-6 mb-1 pb-1 mt-2" style="font-weight: 500">
-                Amount:
-              </p>
-              <input
-                type="number"
-                placeholder="Enter Amount"
-                name="amount"
-                id="amount"
-                required
-                style="
-                  padding: 5px;
-                  border: 2px solid #34d399;
-                  border-radius: 5px;
-                  width: 100%;
-                "
-              />
-
-              <div class="text-end mt-3">
-                <button
-                  type="submit"
-                  class="btn ms-auto"
-                  id="tryMe"
-                  style="background: #059669; color: #fff"
-                >
-                  Payment
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
+    
 
     <!-- js -->
     <script src="./auth.js"></script>

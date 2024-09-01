@@ -10,42 +10,13 @@ fetch("navbar.html")
     const token = localStorage.getItem("authToken")
     // console.log(token)
 
-    // if (token){
-    //     navLeftSideElement.innerHTML += `
-    //                         <li class="nav-item">
-    //                         <a class="nav-link active mx-lg-2" aria-current="page" href="./dashboard.html">Dashboard</a>
-    //                             </li>
-    //                         <li class="nav-item">
-    //                             <a class="nav-link mx-lg-2" href="#">About</a>
-    //                         </li>
-    //                         <li class="nav-item">
-    //                             <a class="nav-link mx-lg-2" href="#">Services</a>
-    //                         </li>
-    //                         <li class="nav-item">
-    //                             <a class="nav-link mx-lg-2" href="#">Portfolio</a>
-    //                         </li>
-    //                         <li class="nav-item">
-    //                             <a class="nav-link mx-lg-2" href="#">Contact</a>
-    //                         </li>
-
-    //                         `;
-
-    //     navRightSideElement.innerHTML +=`
-                            
-    //                         <li class="nav-but">
-    //                             <a class="btn btn-danger" onclick="handleLogout()">Logout</a>
-    //                         </li>
-                            
-
-    //                         `;
-    // }
-    
+    if (token){
         navLeftSideElement.innerHTML += `
                             <li class="nav-item">
                                 <a class="nav-link active mx-lg-2" aria-current="page" href="./index.html">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link mx-lg-2" href="#">Features</a>
+                                <a class="nav-link mx-lg-2" onclick="ShowFeatures()" style="cursor:pointer;">Features</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link mx-lg-2" href="#">Services</a>
@@ -54,7 +25,38 @@ fetch("navbar.html")
                                 <a class="nav-link mx-lg-2" href="#">Portfolio</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link mx-lg-2" href="#">Contact</a>
+                                <a class="nav-link mx-lg-2" onclick="Contact()" style="cursor:pointer;">Contact</a>
+                            </li>
+
+                            `;
+
+        navRightSideElement.innerHTML +=`
+                            <li class="nav-but me-3 mb-2">
+                                <a class="btn" style="background:#059669; color:#fff;" aria-current="page" href="./dashboard.html">Dashboard</a>
+                            </li>
+                            <li class="nav-but">
+                                <a class="btn btn-danger" onclick="handleLogout()">Logout</a>
+                            </li>
+                            
+
+                            `;
+    }
+    else{
+        navLeftSideElement.innerHTML += `
+                            <li class="nav-item">
+                                <a class="nav-link active mx-lg-2" aria-current="page" href="./index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link mx-lg-2" onclick="ShowFeatures()" style="cursor:pointer;">Features</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link mx-lg-2" onclick="Contact()" style="cursor:pointer;">Contact</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link mx-lg-2" href="#">Portfolio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link mx-lg-2" href="#">Survices</a>
                             </li>
 
                             `;
@@ -64,5 +66,7 @@ fetch("navbar.html")
                                 <a href="./login.html" class="login-button">Login</a>
                             </li>
                             `;
+    }
+        
     
 })

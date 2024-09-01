@@ -31,7 +31,7 @@
         <!-- <h2>Smart Soft</h2> -->
       </div>
       <div class="">
-        <h2>SmartSoft</h2>
+        <a href="./index.html" style="color: #1e293b; text-decoration: none;"><h2>SmartSoft</h2></a>
       </div>
       <div class="user--info">
         <a href="./profile.html"><img src="./images/placeholder.png" alt=""></a>
@@ -111,49 +111,14 @@
     <div class="" style=" margin-top: 65px;">
         <h1 style="color: #374151; font-weight: 500;">Customers</h1>
         <div class="d-flex" style="gap: 15px;">
-            <a href="./customer.html" class="fs-6 " style="font-weight: 600;  color: #1e293b;">Customers</a>
-            <a type="button" class="fs-6" data-bs-toggle="modal" data-bs-target="#exampleModal" style="font-weight: 600;   color: #1e293b;">+ Add Customer</a>
             <a href="./customerDueReport.html" class="fs-6 " style="font-weight: 600;  color: #1e293b;">Customer Due Report</a>
         </div>
 
-        
-        <div>
-            <h6 class="mt-4 mb-3">Customer List</h6>
-        </div>
-        <div id="cat-table">
-          <div class="table-responsive" style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
-          <table class="table">
-            <thead >
-              <tr>
-                <th scope="col" style="background: rgba(113, 99, 186); color: #fff;">#</th>
-                <th scope="col" style="background: rgba(113, 99, 186); color: #fff;">Name</th>
-                <th scope="col" style="background: rgba(113, 99, 186); color: #fff;">Email</th>
-                <th scope="col" style="background: rgba(113, 99, 186); color: #fff;">Phone</th>
-                <th scope="col" style="background: rgba(113, 99, 186); color: #fff;">Address</th>
-                <th scope="col" style="background: rgba(113, 99, 186); color: #fff;">Receivable</th>
-                <th scope="col" style="background: rgba(113, 99, 186); color: #fff;">Paid</th>
-                <th scope="col" style="background: rgba(113, 99, 186); color: #fff;">Due</th>
-              </tr>
-            </thead>
-            <tbody id="tbody"></tbody>
-          </table>
-        </div>
-          <div class="col-lg-2 col-md-4 col-sm-12 mx-auto mt-2" id="empty">
-            <img src="./images/empty-folder.png" alt="" class="img-fluid col-12">
-          </div>
-        </div>
-    </div>
-    <!--Container Main end-->
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title fs-4" id="exampleModalLabel">New Customer</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
+        <div class="row col-lg-12 col-md-12 col-sm-12 mt-4">
+          <div class="col-lg-4 col-md-12 col-sm-12 mb-3">
+            <div>
+              <h5 class="mt-1 mb-2">Add Customer</h5>
+            </div>
             <form id="cus-form" onsubmit="addCustomer(event)">
               <p class="fs-6 mb-1 pb-1" style="font-weight: 500;">Name:</p>
               <input type="text" placeholder="Enter Customer Name" name="name" id="name" required style="padding: 5px; border: 2px solid #34d399; border-radius: 5px; width: 100%;">
@@ -169,9 +134,40 @@
               </div>
             </form>
           </div>
+          <div class="col-lg-8 col-md-12 col-sm-12 mb-3">
+            <div>
+              <h5 class="mt-3 mb-4">Customer List</h5>
+            </div>
+          <div id="cat-table">
+            <div class="table-responsive" style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
+            <table class="table">
+              <thead >
+                <tr>
+                  <th scope="col" style="background: rgba(113, 99, 186); color: #fff;">#</th>
+                  <th scope="col" style="background: rgba(113, 99, 186); color: #fff;">Name</th>
+                  <th scope="col" style="background: rgba(113, 99, 186); color: #fff;">Email</th>
+                  <th scope="col" style="background: rgba(113, 99, 186); color: #fff;">Phone</th>
+                  <th scope="col" style="background: rgba(113, 99, 186); color: #fff;">Address</th>
+                  <th scope="col" style="background: rgba(113, 99, 186); color: #fff;">Receivable</th>
+                  <th scope="col" style="background: rgba(113, 99, 186); color: #fff;">Paid</th>
+                  <th scope="col" style="background: rgba(113, 99, 186); color: #fff;">Due</th>
+                </tr>
+              </thead>
+              <tbody id="tbody"></tbody>
+            </table>
+          </div>
+            <div class="col-lg-2 col-md-4 col-sm-12 mx-auto mt-2" id="empty">
+              <img src="./images/empty-folder.png" alt="" class="img-fluid col-12">
+            </div>
+          </div>
+          </div>
         </div>
-      </div>
+
+        
     </div>
+    <!--Container Main end-->
+
+    
 
     <!-- js -->
      <script src="./auth.js"></script>
