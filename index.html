@@ -43,10 +43,14 @@
             & Print Professional Invoices & enjoy uninterrupted GST Billing &
             Return Filing; integrate with Mobile Apps to increase your revenues.
           </p>
-          <div class="d-flex justify-content-between">
-            <button class="btn" style="background-color: #7e22ce; color: #fff">
+          <div class="" id="demo">
+            <a
+              class="btn"
+              style="background-color: #7e22ce; color: #fff;" id="demo"
+              onclick="ViewDemo(event)"
+            >
               VIEW DEMO
-            </button>
+            </a>
             <button class="btn" style="background-color: #e11d48; color: #fff">
               PROPOSAL
             </button>
@@ -164,7 +168,9 @@
               <button
                 class="btn px-4"
                 style="background-color: #10b981; color: white"
-                onclick="Contact()" style="cursor:pointer;">
+                onclick="Contact()"
+                style="cursor: pointer"
+              >
                 CALL FOR DETAILS
               </button>
             </p>
@@ -205,7 +211,9 @@
               <button
                 class="btn px-4"
                 style="background-color: #10b981; color: white"
-                onclick="Contact()" style="cursor:pointer;">
+                onclick="Contact()"
+                style="cursor: pointer"
+              >
                 CALL FOR DETAILS
               </button>
             </p>
@@ -433,10 +441,8 @@
       </div>
       <!-- Copyright -->
     </footer>
-    
 
     <script>
-      
       const ShowFeatures = () => {
         document.getElementById("feature").scrollIntoView({
           behavior: "smooth",
@@ -456,5 +462,42 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+
+    <script>
+      const ViewDemo = (event) => {
+        event.preventDefault();
+        const username = "admin";
+        const password = "pos12345";
+
+        const loginData = {
+          username: username,
+          password: password,
+        };
+        
+        // console.log(loginData);
+        fetch("https://smart-soft.onrender.com/owners/login/", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify(loginData),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.token && data.owner_id) {
+              localStorage.setItem("authToken", data.token);
+              localStorage.setItem("ownerId", data.owner_id);
+              window.location.href = "./dashboard.html";
+            } else {
+              document.getElementById("error").innerText =
+                "Invalid username & password";
+            }
+          })
+          .catch((error) => {
+            console.error(
+              "There was a problem with the fetch operation:",
+              error
+            );
+          });
+      };
+    </script>
   </body>
 </html>
