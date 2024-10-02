@@ -118,7 +118,7 @@ const addSupplier = (event) => {
       form.reset();
 
       // Redirect to the supplier page to show the success message
-      window.location.href = "./supplier.html";
+      window.location.href = "./supplier.html?id=10";
     })
     .catch((err) => console.log(err));
 };

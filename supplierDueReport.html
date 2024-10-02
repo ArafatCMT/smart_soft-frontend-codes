@@ -30,11 +30,12 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    
   </head>
-  <body id="body-pd">
+  <body id="body-pd" style="background-color: #e9e5e5;">
     <header class="header" id="header">
       <div class="header_toggle">
-        <i class="bx bx-menu" id="header-toggle"></i>
+        <!-- <i class="bx bx-menu" id="header-toggle"></i> -->
         <!-- <h2>Smart Soft</h2> -->
       </div>
       <div class="">
@@ -46,123 +47,67 @@
         /></a>
       </div>
     </header>
-    <div class="l-navbar" id="nav-bar">
+    <div class="l-navbar border border-end" id="nav-bar">
       <nav class="nav">
         <div>
           <a
-            href="./dashboard.html"
+            href="./dashboard.html?id=1"
             class="nav_logo"
             style="text-decoration: none"
           >
-            <i class="bx bxl-codepen nav_icon" style="color: #fff"></i>
-            <span class="nav_logo-name">Smart Soft</span>
+            <i class="bx bxl-codepen nav_icon text-secondary"></i>
+            <span class="nav_logo-name fs-5">Smart Soft</span>
           </a>
           <div class="nav_list">
-            <a
-              href="./dashboard.html"
-              class="nav_link active"
-              style="text-decoration: none"
-            >
+            <a href="./dashboard.html?id=1" class="nav_link active" style="text-decoration: none;" id="1">
               <i class="bx bx-grid-alt nav_icon"></i>
               <span class="nav_name">Dashboard</span>
             </a>
-            <!-- <a href="#" class="nav_link" style="text-decoration: none;">
-              <i class="fa-solid fa-cart-shopping nav_icon"></i>
-              <span class="nav_name">POS</span>
-            </a> -->
-            <a
-              href="./sale.html"
-              class="nav_link"
-              style="text-decoration: none"
-            >
+            <a href="./sale.html?id=2" class="nav_link" style="text-decoration: none;" id="2">
               <i class="fa-brands fa-shopify nav_icon"></i>
               <span class="nav_name">Sale</span>
             </a>
-            <a
-              href="./purchase.html"
-              class="nav_link"
-              style="text-decoration: none"
-            >
+            <a href="./purchase.html?id=3" class="nav_link" style="text-decoration: none;" id="3">
               <i class="fa-solid fa-cart-shopping nav_icon"></i>
               <span class="nav_name">Purchase</span>
             </a>
-            <a
-              href="./product_list.html"
-              class="nav_link"
-              style="text-decoration: none"
-            >
+            <a href="./product_list.html?id=4" class="nav_link" style="text-decoration: none;" id="4">
               <i class="fa-solid fa-box nav_icon"></i>
               <span class="nav_name">Products</span>
             </a>
-            <a
-              href="./category.html"
-              class="nav_link"
-              style="text-decoration: none"
-            >
+            <a href="./category.html?id=5" class="nav_link" style="text-decoration: none;" id="5">
               <i class="fa-solid fa-layer-group nav_icon"></i>
               <span class="nav_name">Categories</span>
             </a>
-            <a
-              href="./unit.html"
-              class="nav_link"
-              style="text-decoration: none"
-            >
+            <a href="./unit.html?id=6" class="nav_link" style="text-decoration: none;" id="6">
               <i class="fa-brands fa-unity nav_icon"></i>
               <span class="nav_name">Units</span>
             </a>
-            <a
-              href="./brand.html"
-              class="nav_link"
-              style="text-decoration: none"
-            >
-              <i class="bx bxl-sketch nav_icon"></i>
+            <a href="./brand.html?id=7" class="nav_link" style="text-decoration: none;" id="7">
+              <i class='bx bxl-sketch nav_icon'></i>
               <span class="nav_name">Brands</span>
             </a>
-            <a
-              href="./stock.html"
-              class="nav_link"
-              style="text-decoration: none"
-            >
+            <a href="./stock.html?id=8" class="nav_link" style="text-decoration: none;" id="8">
               <i class="fa-solid fa-store nav_icon"></i>
               <span class="nav_name">Stock</span>
             </a>
-            <a
-              href="./customer.html"
-              class="nav_link"
-              style="text-decoration: none"
-            >
+            <a href="./customer.html?id=9" class="nav_link" style="text-decoration: none;" id="9">
               <i class="fa-solid fa-people-group nav_icon"></i>
               <span class="nav_name">Customers</span>
             </a>
-            <a
-              href="./supplier.html"
-              class="nav_link"
-              style="text-decoration: none"
-            >
+            <a href="./supplier.html?id=10" class="nav_link" style="text-decoration: none;" id="10">
               <i class="fa-solid fa-user-group nav_icon"></i>
               <span class="nav_name">Suppliers</span>
             </a>
-            <a
-              href="./employee.html"
-              class="nav_link"
-              style="text-decoration: none"
-            >
+            <a href="./employee.html?id=11" class="nav_link" style="text-decoration: none;" id="11">
               <i class="fa-solid fa-circle-user nav_icon"></i>
               <span class="nav_name">Employees</span>
             </a>
-            <a
-              href="./salary.html"
-              class="nav_link"
-              style="text-decoration: none"
-            >
-              <i class="bx bxs-coin-stack nav_icon"></i>
+            <a href="./salary.html?id=12" class="nav_link" style="text-decoration: none;" id="12">
+              <i class='bx bxs-coin-stack nav_icon'></i>
               <span class="nav_name">Salary</span>
             </a>
-            <a
-              class="nav_link"
-              onclick="handleLogout()"
-              style="text-decoration: none"
-            >
+            <a class="nav_link" onclick="handleLogout()" style="text-decoration: none; cursor: pointer;">
               <i class="bx bx-log-out nav_icon"></i>
               <span class="nav_name">Logout</span>
             </a>
@@ -172,77 +117,62 @@
     </div>
 
     <!--Container Main start-->
-    <div class="" style="margin-top: 65px">
+    <div class="" style="margin-top: 75px">
       <h1 style="color: #374151; font-weight: 500">Suppliers</h1>
       <div class="d-flex" style="gap: 15px">
         <a
-          href="./supplier.html"
+          href="./supplier.html?id=10"
           class="fs-6"
           style="font-weight: 600; color: #1e293b"
           >Suppliers</a
         >
-        <!-- <a
-          type="button"
-          class="fs-6"
-          data-bs-toggle="modal"
-          data-bs-target="#exampleModal"
-          style="font-weight: 600; color: #1e293b"
-          >+ Add Supplier</a
-        > -->
-        <!-- <a
-          href="./supplierDueReport.html"
-          class="fs-6"
-          style="font-weight: 600; color: #1e293b"
-          >Supplier Due Report</a
-        > -->
       </div>
 
-      <div>
-        <h6 class="mt-4 mb-3">Supplier List</h6>
-      </div>
-      <div id="cat-table">
+      
+      <div id="cat-table" class="border p-3 mt-4" style="background-color: #FFFFFF; border-radius: 13px; height: 720px;">
+        <div>
+          <h6 class="mb-4">Supplier List</h6>
+        </div>
         <div
           class="table-responsive"
-          style="overflow-x: auto; -webkit-overflow-scrolling: touch"
         >
           <table class="table">
             <thead>
               <tr>
                 <th
                   scope="col"
-                  style="background: rgba(113, 99, 186); color: #fff"
+                  style="background: #5D5FF0; color: #fff"
                 >
                   #
                 </th>
                 <th
                   scope="col"
-                  style="background: rgba(113, 99, 186); color: #fff"
+                  style="background: #5D5FF0; color: #fff"
                 >
                   Name
                 </th>
                 <th
                   scope="col"
-                  style="background: rgba(113, 99, 186); color: #fff"
+                  style="background: #5D5FF0; color: #fff"
                 >
                   Email
                 </th>
                 <th
                   scope="col"
-                  style="background: rgba(113, 99, 186); color: #fff"
+                  style="background: #5D5FF0; color: #fff"
                 >
                   Phone
                 </th>
                 <th
                   scope="col"
-                  style="background: rgba(113, 99, 186); color: #fff"
+                  style="background: #5D5FF0; color: #fff"
                 >
                   Address
                 </th>
-                <!-- <th scope="col" style="background: rgba(113, 99, 186); color: #fff;">Payable</th>
-                <th scope="col" style="background: rgba(113, 99, 186); color: #fff;">Paid</th> -->
+                
                 <th
                   scope="col"
-                  style="background: rgba(113, 99, 186); color: #fff"
+                  style="background: #5D5FF0; color: #fff"
                 >
                   Total Due
                 </th>
@@ -263,103 +193,6 @@
 
     <!--Container Main end-->
 
-    <!-- modal  -->
-    <!-- <div
-      class="modal fade"
-      id="exampleModal"
-      tabindex="-1"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title fs-4" id="exampleModalLabel">
-              New Supplier
-            </h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <form id="supplier-form" onsubmit="addSupplier(event)">
-              <p class="fs-6 mb-1 pb-1" style="font-weight: 500">Name:</p>
-              <input
-                type="text"
-                placeholder="Enter Supplier Name"
-                name="name"
-                id="name"
-                required
-                style="
-                  padding: 5px;
-                  border: 2px solid #34d399;
-                  border-radius: 5px;
-                  width: 100%;
-                "
-              />
-              <p class="fs-6 mb-1 pb-1 mt-2" style="font-weight: 500">Email:</p>
-              <input
-                type="email"
-                placeholder="Enter Supplier Email"
-                name="email"
-                id="email"
-                required
-                style="
-                  padding: 5px;
-                  border: 2px solid #34d399;
-                  border-radius: 5px;
-                  width: 100%;
-                "
-              />
-              <p class="fs-6 mb-1 pb-1 mt-2" style="font-weight: 500">Phone:</p>
-              <input
-                type="text"
-                placeholder="Enter Supplier Phone Number"
-                name="phone"
-                id="phone"
-                required
-                style="
-                  padding: 5px;
-                  border: 2px solid #34d399;
-                  border-radius: 5px;
-                  width: 100%;
-                "
-              />
-              <p class="fs-6 mb-1 pb-1 mt-2" style="font-weight: 500">
-                Address:
-              </p>
-              <input
-                type="text"
-                placeholder="Enter Supplier Address"
-                name="address"
-                id="address"
-                required
-                style="
-                  padding: 5px;
-                  border: 2px solid #34d399;
-                  border-radius: 5px;
-                  width: 100%;
-                "
-              />
-
-              <div class="text-end mt-3">
-                <button
-                  type="submit"
-                  class="btn ms-auto"
-                  style="background: #059669; color: #fff"
-                >
-                  Add Supplier
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
     <!-- js -->
     <script src="./auth.js"></script>
     <script src="./supplier.js"></script>
@@ -370,27 +203,27 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", function (event) {
-        const showNavbar = (toggleId, navId, bodyId, headerId) => {
-          const toggle = document.getElementById(toggleId),
+        const showNavbar = (navId, bodyId, headerId) => {
+          // const toggle = document.getElementById(toggleId),
             nav = document.getElementById(navId),
             bodypd = document.getElementById(bodyId),
             headerpd = document.getElementById(headerId);
 
           // Validate that all variables exist
-          if (toggle && nav && bodypd && headerpd) {
-            toggle.addEventListener("click", () => {
+          // if (toggle && nav && bodypd && headerpd) {
+          //   toggle.addEventListener("click", () => {
               nav.classList.toggle("show");
 
-              toggle.classList.toggle("bx-x");
+              // toggle.classList.toggle("bx-x");
 
               bodypd.classList.toggle("body-pd");
 
               headerpd.classList.toggle("body-pd");
-            });
-          }
+          //   });
+          // }
         };
 
-        showNavbar("header-toggle", "nav-bar", "body-pd", "header");
+        showNavbar("nav-bar", "body-pd", "header");
 
         /*===== LINK ACTIVE =====*/
         const linkColor = document.querySelectorAll(".nav_link");
@@ -405,6 +238,19 @@
 
         // Your code to run since DOM is loaded and ready
       });
+    </script>
+    <script>
+      const getQueryParam = () => {
+        const param = new URLSearchParams(window.location.search).get("id")
+        if(param === '10')
+        {
+          document.getElementById("10").style.background = '#5D5FF0';
+          document.getElementById("10").style.borderRadius = '8px';
+          document.getElementById("10").style.color = '#FFFFFF';
+          // console.log('match')
+        }
+      };
+      getQueryParam();
     </script>
 
     <script

@@ -111,7 +111,7 @@ const addCustomer = (event) => {
         form.reset();
   
         // Reload the page to show the success message
-        window.location.href = "./customer.html"; // Redirect to customer page
+        window.location.href = "./customer.html?id=9"; // Redirect to customer page
       })
       .catch((err) => console.log(err));
   };

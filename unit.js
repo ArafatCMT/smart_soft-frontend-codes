@@ -61,7 +61,7 @@ const addUnit = (event) => {
       form.reset();
 
       // Redirect to the unit page to show the success message
-      window.location.href = "./unit.html";
+      window.location.href = "./unit.html?id=6";
     })
     .catch((err) => console.log(err));
 };

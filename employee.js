@@ -68,7 +68,7 @@ const addEmployee = (event) => {
         form.reset();
   
         // Redirect to the employee page to show the success message
-        window.location.href = "./employee.html";
+        window.location.href = "./employee.html?id=11";
       })
       .catch((err) => console.log(err));
   };

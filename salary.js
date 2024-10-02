@@ -106,7 +106,7 @@ const addSalary = (event) => {
       form.reset();
 
       // Redirect to the salary page to show the success message
-      window.location.href = "./salary.html";
+      window.location.href = "./salary.html?id=12";
     })
     .catch((err) => console.log(err));
 };

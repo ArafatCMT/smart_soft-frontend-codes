@@ -69,7 +69,7 @@ const addCategory = (event) => {
         form.reset();
   
         // Reload the page to trigger showing the success message
-        window.location.reload();
+        window.location.href = "./category.html?id=5";
       })
       .catch((err) => console.log(err));
   };

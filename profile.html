@@ -21,11 +21,10 @@
      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
      crossorigin="anonymous"/>
   </head>
-  <body id="body-pd">
-    <header class="header" id="header">
+  <body id="body-pd" style="background-color: #e9e5e5;">
+    <header class="header border border-bottom" id="header">
       <div class="header_toggle">
-        <i class="bx bx-menu" id="header-toggle"></i>
-        <!-- <h2>Smart Soft</h2> -->
+        <!-- <i class="bx bx-menu" id="header-toggle"></i> -->
       </div>
       <div class="">
         <a href="./index.html" style="color: #1e293b; text-decoration: none;"><h2>SmartSoft</h2></a>
@@ -34,86 +33,84 @@
         <a href="./profile.html"><img src="./images/placeholder.png" alt=""></a>
     </div>
     </header>
-    <div class="l-navbar" id="nav-bar">
+    <div class="l-navbar border border-end" id="nav-bar">
       <nav class="nav">
         <div>
-          <a href="./dashboard.html" class="nav_logo" style="text-decoration: none;">
-            <i class="bx bxl-codepen nav_icon" style="color: #fff;"></i>
-            <span class="nav_logo-name">Smart Soft</span>
+          <a href="./dashboard.html?id=1" class="nav_logo" style="text-decoration: none;">
+            <i class="bx bxl-codepen nav_icon text-secondary"></i>
+            <span class="nav_logo-name fs-5">Smart Soft</span>
           </a>
           <div class="nav_list">
-            <a href="./dashboard.html" class="nav_link active" style="text-decoration: none;">
+            <a href="./dashboard.html?id=1" class="nav_link active" style="text-decoration: none;" id="1">
               <i class="bx bx-grid-alt nav_icon"></i>
               <span class="nav_name">Dashboard</span>
             </a>
-            
-            <a href="./sale.html" class="nav_link" style="text-decoration: none;">
+            <a href="./sale.html?id=2" class="nav_link" style="text-decoration: none;" id="2">
               <i class="fa-brands fa-shopify nav_icon"></i>
               <span class="nav_name">Sale</span>
             </a>
-            <a href="./purchase.html" class="nav_link" style="text-decoration: none;">
+            <a href="./purchase.html?id=3" class="nav_link" style="text-decoration: none;" id="3">
               <i class="fa-solid fa-cart-shopping nav_icon"></i>
               <span class="nav_name">Purchase</span>
             </a>
-            <a href="./product_list.html" class="nav_link" style="text-decoration: none;">
+            <a href="./product_list.html?id=4" class="nav_link" style="text-decoration: none;" id="4">
               <i class="fa-solid fa-box nav_icon"></i>
               <span class="nav_name">Products</span>
             </a>
-            <a href="./category.html" class="nav_link" style="text-decoration: none;">
+            <a href="./category.html?id=5" class="nav_link" style="text-decoration: none;" id="5">
               <i class="fa-solid fa-layer-group nav_icon"></i>
               <span class="nav_name">Categories</span>
             </a>
-            <a href="./unit.html" class="nav_link" style="text-decoration: none;">
+            <a href="./unit.html?id=6" class="nav_link" style="text-decoration: none;" id="6">
               <i class="fa-brands fa-unity nav_icon"></i>
               <span class="nav_name">Units</span>
             </a>
-            <a href="./brand.html" class="nav_link" style="text-decoration: none;">
+            <a href="./brand.html?id=7" class="nav_link" style="text-decoration: none;" id="7">
               <i class='bx bxl-sketch nav_icon'></i>
               <span class="nav_name">Brands</span>
             </a>
-            <a href="./stock.html" class="nav_link" style="text-decoration: none;">
+            <a href="./stock.html?id=8" class="nav_link" style="text-decoration: none;" id="8">
               <i class="fa-solid fa-store nav_icon"></i>
               <span class="nav_name">Stock</span>
             </a>
-            <a href="./customer.html" class="nav_link" style="text-decoration: none;">
+            <a href="./customer.html?id=9" class="nav_link" style="text-decoration: none;" id="9">
               <i class="fa-solid fa-people-group nav_icon"></i>
               <span class="nav_name">Customers</span>
             </a>
-            <a href="./supplier.html" class="nav_link" style="text-decoration: none;">
+            <a href="./supplier.html?id=10" class="nav_link" style="text-decoration: none;" id="10">
               <i class="fa-solid fa-user-group nav_icon"></i>
               <span class="nav_name">Suppliers</span>
             </a>
-            <a href="./employee.html" class="nav_link" style="text-decoration: none;">
+            <a href="./employee.html?id=11" class="nav_link" style="text-decoration: none;" id="11">
               <i class="fa-solid fa-circle-user nav_icon"></i>
               <span class="nav_name">Employees</span>
             </a>
-            <a href="./salary.html" class="nav_link" style="text-decoration: none;">
+            <a href="./salary.html?id=12" class="nav_link" style="text-decoration: none;" id="12">
               <i class='bx bxs-coin-stack nav_icon'></i>
               <span class="nav_name">Salary</span>
             </a>
-            <a class="nav_link" onclick="handleLogout()" style="text-decoration: none;">
+            <a class="nav_link" onclick="handleLogout()" style="text-decoration: none; cursor: pointer;">
               <i class="bx bx-log-out nav_icon"></i>
               <span class="nav_name">Logout</span>
             </a>
           </div>
         </div>
-        
       </nav>
     </div>
 
     <!--Container Main start-->
-    <div class="" style=" margin-top: 65px;">
+    <div class="" style=" margin-top: 78px;">
         <h1 style="color: #374151; font-weight: 500;">Profile</h1>
 
         <div class="mt-5">
-            <div class="card mx-auto col-lg-4 col-md-6 col-sm-12 p-4" style="box-shadow: 4px 4px 8px  gray; background: #10b981; color: #1f2937;" >
+            <div class="card mx-auto col-lg-4 col-md-6 col-sm-12 p-4" style="box-shadow: 4px 4px 8px  gray; background: #FFFFFF; color: #1f2937;" >
                 <div class="mx-auto" >
                     <img src="./images/placeholder.png" alt="" class="" style="width: 60px; height: 60px; border-radius: 50%;">
                 </div>
                 <div class="card-body" >
-                  <h5 class="text-center" id="name"></h5>
-                  <h6 class="text-center" id="email"></h6>
-                  <h6 id="address" class="text-center"></h6>
+                  <h5 class="text-center" id="name" style="color: gray;"></h5>
+                  <h6 class="text-center" id="email" style="color: gray;"></h6>
+                  <h6 id="address" class="text-center" style="color: gray;"></h6>
                   
                 </div>
               </div>
@@ -133,28 +130,28 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", function (event) {
-        const showNavbar = (toggleId, navId, bodyId, headerId) => {
-          const toggle = document.getElementById(toggleId),
+        const showNavbar = (navId, bodyId, headerId) => {
+          // const toggle = document.getElementById(toggleId),
             nav = document.getElementById(navId),
             bodypd = document.getElementById(bodyId),
             headerpd = document.getElementById(headerId);
 
           // Validate that all variables exist
-          if (toggle && nav && bodypd && headerpd) {
-            toggle.addEventListener("click", () => {
+          // if (toggle && nav && bodypd && headerpd) {
+          //   toggle.addEventListener("click", () => {
 
               nav.classList.toggle("show");
 
-              toggle.classList.toggle("bx-x");
+              // toggle.classList.toggle("bx-x");
 
               bodypd.classList.toggle("body-pd");
 
               headerpd.classList.toggle("body-pd");
-            });
-          }
+          //   });
+          // }
         };
 
-        showNavbar("header-toggle", "nav-bar", "body-pd", "header");
+        showNavbar("nav-bar", "body-pd", "header");
 
         /*===== LINK ACTIVE =====*/
         const linkColor = document.querySelectorAll(".nav_link");

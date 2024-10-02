@@ -129,7 +129,7 @@ const addPurchase = (event) => {
         form.reset();
   
         // Redirect to the purchase page to show the success message
-        window.location.href = "./purchase.html";
+        window.location.href = "./purchase.html?id=3";
       })
       .catch((err) => console.log(err));
   };

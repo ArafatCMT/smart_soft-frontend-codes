@@ -148,7 +148,7 @@ const addProduct = (event) => {
         form.reset();
   
         // Redirect to the product list page to show the success message
-        window.location.href = "./product_list.html";
+        window.location.href = "./product_list.html?id=4";
       })
       .catch((err) => console.log(err));
   };

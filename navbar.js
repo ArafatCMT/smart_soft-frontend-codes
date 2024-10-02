@@ -32,7 +32,7 @@ fetch("navbar.html")
 
         navRightSideElement.innerHTML +=`
                             <li class="nav-but me-3 mb-2">
-                                <a class="btn" style="background:#059669; color:#fff;" aria-current="page" href="./dashboard.html">Dashboard</a>
+                                <a class="btn" style="background:#5D5FF0; color:#fff;" aria-current="page" href="./dashboard.html?id=1">Dashboard</a>
                             </li>
                             <li class="nav-but">
                                 <a class="btn btn-danger" onclick="handleLogout()">Logout</a>

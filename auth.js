@@ -64,7 +64,7 @@ const handleLogin = (event) => {
       if (data.token && data.owner_id) {
         localStorage.setItem("authToken", data.token);
         localStorage.setItem("ownerId", data.owner_id);
-        window.location.href = "./dashboard.html";
+        window.location.href = "./dashboard.html?id=1";
       } else {
         document.getElementById("error").innerText =
           "Invalid username & password";
@@ -94,10 +94,12 @@ const handleLogout = () => {
 };
 
 const ownerId = localStorage.getItem("ownerId")
+// console.log(ownerId)
 
 if(ownerId){
-  document.getElementById("demo").style.display = 'none'
+  document.getElementById("demo").style.display = 'none';
 }
-else{
-  document.getElementById("demo").style.display = 'flex'
-}
+// if(ownerId === null){
+//   console.log(ownerId)
+//   document.getElementById("demo").style.display = 'flex'
+// }

@@ -65,7 +65,7 @@ const addBrand = (event) => {
       form.reset();
 
       // Redirect to the brand page to show the success message
-      window.location.href = "./brand.html";
+      window.location.href = "./brand.html?id=7";
     })
     .catch((err) => console.log(err));
 };

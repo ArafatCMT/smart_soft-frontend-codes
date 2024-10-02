@@ -142,13 +142,13 @@ const addSale = (event) => {
               form.reset();
   
               // Redirect to the sale page to show the success message
-              window.location.href = "./sale.html";
+              window.location.href = "./sale.html?id=2";
             })
             .catch((err) => console.log(err));
         } else {
           alert("Not Available Stock!");
           // Redirect to the sale page even if there's no stock
-          window.location.href = "./sale.html";
+          window.location.href = "./sale.html?id=2";
         }
       })
       .catch((err) => console.log(err));

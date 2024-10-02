@@ -4,10 +4,87 @@
 #unit-form input{
     width: 100%;
     padding: 5px;
-    border: 2px solid #34d399;
+    border: 2px solid #5D5FF0;
     border-radius: 5px;
 }
 #demo{
     display: flex;
     justify-content: space-between;
 }
+form input{
+    padding: 5px;
+    border: 2px solid #5D5FF0;
+    border-radius: 5px;
+    width: 100%;
+}
+form select{
+    padding: 5px;
+    border: 2px solid #5D5FF0;
+    border-radius: 5px;
+    width: 100%;
+}
+.A{
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 4px;
+    height: 36px;
+}
+.Active{
+    background-color: #FE466D;
+}
+.Active1{
+    background-color: #1FE1A3;
+}
+.Active2{
+    background-color: #F7C22F;
+}
+.Active3{
+    background-color: #26B0F9;
+}
+.Active4{
+    background-color: #a739f2;
+}
+.Active5{ 
+    background-color: #0891b2;
+}
+.Active6{ 
+    background-color: #a855f7;
+}
+.Active7{ 
+    background-color: #16a34a;
+}
+.Active8{ 
+    background-color: #fb7185;
+}
+.Active9{ 
+    background-color: #e11d48;
+}
+.table-responsive {
+    position: relative;
+    max-height: 680px; 
+    overflow-y: auto; 
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Fix the header while the table body scrolls */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  thead th {
+    position: sticky; /* Sticks the header at the top */
+    top: 0;
+    z-index: 10; 
+    background: #5D5FF0; 
+    color: #fff; 
+    padding: 10px; 
+    border: 1px solid #ddd;
+  }
+
+  tbody td {
+    border: 1px solid #ddd;
+    padding: 10px;
+  }
