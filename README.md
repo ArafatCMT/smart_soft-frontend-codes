@@ -2,6 +2,12 @@
 
 SmartSoft is a comprehensive point-of-sale software application that manages users, products, sales, purchases, stock, and other entities essential to store management.
 
+### Technology 
+- HTML
+- CSS
+- Bootstrap v5
+- JavaScript
+  
 ### Base URL The base URL for accessing the API is:
 
 arduino Copy code https://smart-soft.onrender.com/ Features
