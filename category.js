@@ -4,7 +4,7 @@ const loadCategory = () =>{
 
     const parent = document.getElementById("tbody")
 
-    fetch(`https://smart-soft.onrender.com/products/all/category/?owner_id=${ownerId}`)
+    fetch(`https://smart-soft-gold.vercel.app/products/all/category/?owner_id=${ownerId}`)
     .then(res => res.json())
     .then(categoris => {
 
@@ -16,7 +16,7 @@ const loadCategory = () =>{
             
             // console.log(i)
 
-            fetch(`https://smart-soft.onrender.com/products/category/${cat.id}`)
+            fetch(`https://smart-soft-gold.vercel.app/products/category/${cat.id}`)
             .then(res => res.json())
             .then(data => {
                 i++;
@@ -51,7 +51,7 @@ const addCategory = (event) => {
       name: name,
     };
   
-    fetch(`https://smart-soft.onrender.com/products/add/category/${id}/`, {
+    fetch(`https://smart-soft-gold.vercel.app/products/add/category/${id}/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

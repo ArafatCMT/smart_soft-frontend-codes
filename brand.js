@@ -5,7 +5,7 @@ const loadbrand = () => {
   const parent = document.getElementById("tbody");
 
   fetch(
-    `https://smart-soft.onrender.com/products/all/brand/?owner_id=${ownerId}`
+    `https://smart-soft-gold.vercel.app/products/all/brand/?owner_id=${ownerId}`
   )
     .then((res) => res.json())
     .then((brands) => {
@@ -17,7 +17,7 @@ const loadbrand = () => {
         // i++;
         // console.log(unit)
         fetch(
-          `https://smart-soft.onrender.com/products/brands/${brand.id}/?owner_id=${ownerId}`
+          `https://smart-soft-gold.vercel.app/products/brands/${brand.id}/?owner_id=${ownerId}`
         )
           .then((res) => res.json())
           .then((data) => {
@@ -48,7 +48,7 @@ const addBrand = (event) => {
     name: name,
   };
 
-  fetch(`https://smart-soft.onrender.com/products/add/brand/${id}/`, {
+  fetch(`https://smart-soft-gold.vercel.app/products/add/brand/${id}/`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

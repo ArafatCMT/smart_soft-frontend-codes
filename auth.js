@@ -23,7 +23,7 @@ const handleRegistration = (event) => {
         RegistrationData.password
       )
     ) {
-      fetch("https://smart-soft.onrender.com/owners/register/", {
+      fetch("https://smart-soft-gold.vercel.app/owners/register/", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(RegistrationData),
@@ -54,7 +54,7 @@ const handleLogin = (event) => {
   };
 
   console.log(loginData);
-  fetch("https://smart-soft.onrender.com/owners/login/", {
+  fetch("https://smart-soft-gold.vercel.app/owners/login/", {
     method: "POST",
     headers: { "content-type": "application/json" },
     body: JSON.stringify(loginData),
@@ -79,7 +79,7 @@ const handleLogout = () => {
   const token = localStorage.getItem("authToken");
   console.log(token);
 
-  fetch("https://smart-soft.onrender.com/owners/logout/", {
+  fetch("https://smart-soft-gold.vercel.app/owners/logout/", {
     method: "GET",
     headers: {
       "content-type": "application/json",

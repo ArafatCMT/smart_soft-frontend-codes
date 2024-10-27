@@ -5,7 +5,7 @@ const loadSaleReport = () =>{
 
     const parent = document.getElementById("tbody")
 
-    fetch(`https://smart-soft.onrender.com/purchases/sale/report/?owner_id=${ownerId}`)
+    fetch(`https://smart-soft-gold.vercel.app/purchases/sale/report/?owner_id=${ownerId}`)
     .then(res => res.json())
     .then(sale => {
         console.log(sale.length)
@@ -17,7 +17,7 @@ const loadSaleReport = () =>{
         sale.forEach((sl)=>{
             const tr = document.createElement('tr')
             // console.log(sl.customer, sl.product)
-            fetch(`https://smart-soft.onrender.com/peoples/edit/customer/${sl.customer}/`,{
+            fetch(`https://smart-soft-gold.vercel.app/peoples/edit/customer/${sl.customer}/`,{
             method: "GET",
             headers: {
             "content-type": "application/json",
@@ -27,11 +27,11 @@ const loadSaleReport = () =>{
         .then(res => res.json())
         .then(customer => {
 
-            fetch(`https://smart-soft.onrender.com/products/single/product/${sl.product}`)
+            fetch(`https://smart-soft-gold.vercel.app/products/single/product/${sl.product}`)
             .then(res => res.json())
             .then(product => {
 
-                fetch(`https://smart-soft.onrender.com/products/unit/${product.unit}/`)
+                fetch(`https://smart-soft-gold.vercel.app/products/unit/${product.unit}/`)
                 .then(res => res.json())
                 .then(unit => {
                     i++;
@@ -65,7 +65,7 @@ const Display = () =>{
     const ownerId = localStorage.getItem("ownerId")
     const token = localStorage.getItem("authToken");
 
-    fetch(`https://smart-soft.onrender.com/peoples/all/customer/?owner_id=${ownerId}`)
+    fetch(`https://smart-soft-gold.vercel.app/peoples/all/customer/?owner_id=${ownerId}`)
     .then(res => res.json())
     .then(customers => {
         const select = document.getElementById("customer")
@@ -78,7 +78,7 @@ const Display = () =>{
         })
     })
 
-    fetch(`https://smart-soft.onrender.com/products/all/product/?owner_id=${ownerId}`)
+    fetch(`https://smart-soft-gold.vercel.app/products/all/product/?owner_id=${ownerId}`)
     .then(res => res.json())
     .then(products => {
         const select = document.getElementById("product")
@@ -114,8 +114,10 @@ const addSale = (event) => {
       receivable: receivable,
       paid: paid,
     };
-  
-    fetch(`https://smart-soft.onrender.com/stocks/check/${product}/`, {
+    
+    
+
+    fetch(`https://smart-soft-gold.vercel.app/stocks/check/${product}/`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -125,7 +127,7 @@ const addSale = (event) => {
       .then((res) => res.json())
       .then((data) => {
         if (data.available_stock >= quentity) {
-          fetch(`https://smart-soft.onrender.com/purchases/sale/${id}/`, {
+          fetch(`https://smart-soft-gold.vercel.app/purchases/sale/${id}/`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -135,14 +137,11 @@ const addSale = (event) => {
           })
             .then((res) => res.json())
             .then((data) => {
-              // Set a flag in sessionStorage indicating a successful sale
+
               sessionStorage.setItem('saleAdded', 'true');
-  
-              // Optionally reset the form if needed
               form.reset();
-  
-              // Redirect to the sale page to show the success message
-              window.location.href = "./sale.html?id=2";
+
+              window.location.href = `https://smart-soft-gold.vercel.app/purchases/pay/${data.id}/${2}`;
             })
             .catch((err) => console.log(err));
         } else {

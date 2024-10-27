@@ -2,7 +2,7 @@ const summary = ()=>{
     const ownerId = localStorage.getItem("ownerId")
 
     // purchase
-    fetch(`https://smart-soft.onrender.com/purchases/today/${ownerId}/`)
+    fetch(`https://smart-soft-gold.vercel.app/purchases/today/${ownerId}/`)
     .then(res => res.json())
     .then(data =>{
         let purchase = 0;
@@ -13,7 +13,7 @@ const summary = ()=>{
     })
 
     // sold
-    fetch(`https://smart-soft.onrender.com/purchases/sale/today/${ownerId}/`)
+    fetch(`https://smart-soft-gold.vercel.app/purchases/sale/today/${ownerId}/`)
     .then(res => res.json())
     .then(data =>{
         let sold = 0;
@@ -29,7 +29,7 @@ const summary = ()=>{
 
 
     // customer
-    fetch(`https://smart-soft.onrender.com/peoples/all/customer/?owner_id=${ownerId}`)
+    fetch(`https://smart-soft-gold.vercel.app/peoples/all/customer/?owner_id=${ownerId}`)
     .then(res => res.json())
     .then(customers => {
         let total = 0;
@@ -39,7 +39,7 @@ const summary = ()=>{
     })
 
     //supplier
-    fetch(`https://smart-soft.onrender.com/peoples/all/supplier/?owner_id=${ownerId}`)
+    fetch(`https://smart-soft-gold.vercel.app/peoples/all/supplier/?owner_id=${ownerId}`)
     .then(res => res.json())
     .then(sup => {
         let total = 0;
@@ -49,7 +49,7 @@ const summary = ()=>{
     })
 
     // product 
-    fetch(`https://smart-soft.onrender.com/products/all/product/?owner_id=${ownerId}`)
+    fetch(`https://smart-soft-gold.vercel.app/products/all/product/?owner_id=${ownerId}`)
     .then(res => res.json())
     .then(products => {
         let total = 0;
@@ -59,7 +59,7 @@ const summary = ()=>{
     })
 
     // receivable
-    fetch(`https://smart-soft.onrender.com/peoples/customer/due/report/?owner_id=${ownerId}`)
+    fetch(`https://smart-soft-gold.vercel.app/peoples/customer/due/report/?owner_id=${ownerId}`)
     .then(res => res.json())
     .then(due => {
         let total = 0;
@@ -70,7 +70,7 @@ const summary = ()=>{
     })
 
     //payable
-    fetch(`https://smart-soft.onrender.com/peoples/supplier/due/report/?owner_id=${ownerId}`)
+    fetch(`https://smart-soft-gold.vercel.app/peoples/supplier/due/report/?owner_id=${ownerId}`)
     .then(res => res.json())
     .then(due => {
         let total = 0;
@@ -81,7 +81,7 @@ const summary = ()=>{
     })
 
     // stock
-    fetch(`https://smart-soft.onrender.com/stocks/show/?owner_id=${ownerId}`)
+    fetch(`https://smart-soft-gold.vercel.app/stocks/show/?owner_id=${ownerId}`)
     .then(res => res.json())
     .then(stock => {
         let sale = 0;

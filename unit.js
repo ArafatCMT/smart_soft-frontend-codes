@@ -5,7 +5,7 @@ const loadUnit = () => {
   const parent = document.getElementById("tbody");
 
   fetch(
-    `https://smart-soft.onrender.com/products/all/unit/?owner_id=${ownerId}`
+    `https://smart-soft-gold.vercel.app/products/all/unit/?owner_id=${ownerId}`
   )
     .then((res) => res.json())
     .then((units) => {
@@ -44,7 +44,7 @@ const addUnit = (event) => {
 
   console.log(JSON.stringify(unitData));
 
-  fetch(`https://smart-soft.onrender.com/products/add/unit/${id}`, {
+  fetch(`https://smart-soft-gold.vercel.app/products/add/unit/${id}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

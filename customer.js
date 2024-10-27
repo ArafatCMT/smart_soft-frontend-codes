@@ -4,7 +4,7 @@ const loadCustomer = () =>{
 
     const parent = document.getElementById("tbody")
 
-    fetch(`https://smart-soft.onrender.com/peoples/all/customer/?owner_id=${ownerId}`)
+    fetch(`https://smart-soft-gold.vercel.app/peoples/all/customer/?owner_id=${ownerId}`)
     .then(res => res.json())
     .then(customers => {
         if (customers.length > 0){
@@ -38,7 +38,7 @@ const loadDueReport = () =>{
 
     const parent = document.getElementById("tbody")
 
-    fetch(`https://smart-soft.onrender.com/peoples/customer/due/report/?owner_id=${ownerId}`)
+    fetch(`https://smart-soft-gold.vercel.app/peoples/customer/due/report/?owner_id=${ownerId}`)
     .then(res => res.json())
     .then(reports => {
         if (reports.length > 0){
@@ -47,7 +47,7 @@ const loadDueReport = () =>{
         let i = 0;
         reports.forEach((report) => {
            
-            fetch(`https://smart-soft.onrender.com/peoples/edit/customer/${report.customer}/`,{
+            fetch(`https://smart-soft-gold.vercel.app/peoples/edit/customer/${report.customer}/`,{
                 method: "GET",
                 headers: {
                 "content-type": "application/json",
@@ -94,7 +94,7 @@ const addCustomer = (event) => {
       address: address,
     };
   
-    fetch(`https://smart-soft.onrender.com/peoples/add/customer/${id}/`, {
+    fetch(`https://smart-soft-gold.vercel.app/peoples/add/customer/${id}/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

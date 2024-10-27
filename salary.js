@@ -6,7 +6,7 @@ const loadSalaryReport = () => {
   const parent = document.getElementById("tbody");
 
   fetch(
-    `https://smart-soft.onrender.com/peoples/salary/report/?owner_id=${ownerId}`
+    `https://smart-soft-gold.vercel.app/peoples/salary/report/?owner_id=${ownerId}`
   )
     .then((res) => res.json())
     .then((reports) => {
@@ -16,7 +16,7 @@ const loadSalaryReport = () => {
       let i = 0;
       reports.forEach((rep) => {
         fetch(
-          `https://smart-soft.onrender.com/peoples/edit/employee/${rep.employee}/`,
+          `https://smart-soft-gold.vercel.app/peoples/edit/employee/${rep.employee}/`,
           {
             method: "GET",
             headers: {
@@ -55,7 +55,7 @@ const showEmployee = () => {
   const token = localStorage.getItem("token");
 
   fetch(
-    `https://smart-soft.onrender.com/peoples/all/employee/?owner_id=${ownerId}`
+    `https://smart-soft-gold.vercel.app/peoples/all/employee/?owner_id=${ownerId}`
   )
     .then((res) => res.json())
     .then((empls) => {
@@ -89,7 +89,7 @@ const addSalary = (event) => {
   };
 
   // console.log(JSON.stringify(salaryData))
-  fetch(`https://smart-soft.onrender.com/peoples/salary/${id}/`, {
+  fetch(`https://smart-soft-gold.vercel.app/peoples/salary/${id}/`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

@@ -4,7 +4,7 @@ const loadEmployee = () =>{
 
     const parent = document.getElementById("tbody")
 
-    fetch(`https://smart-soft.onrender.com/peoples/all/employee/?owner_id=${ownerId}`)
+    fetch(`https://smart-soft-gold.vercel.app/peoples/all/employee/?owner_id=${ownerId}`)
     .then(res => res.json())
     .then(empls => {
         if (empls.length > 0){
@@ -51,7 +51,7 @@ const addEmployee = (event) => {
       salary: salary,
     };
   
-    fetch(`https://smart-soft.onrender.com/peoples/add/employee/${id}/`, {
+    fetch(`https://smart-soft-gold.vercel.app/peoples/add/employee/${id}/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

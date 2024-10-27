@@ -4,7 +4,7 @@ const loadStock = () =>{
 
     const parent = document.getElementById("tbody")
 
-    fetch(`https://smart-soft.onrender.com/stocks/show/?owner_id=${ownerId}`)
+    fetch(`https://smart-soft-gold.vercel.app/stocks/show/?owner_id=${ownerId}`)
     .then(res => res.json())
     .then(stocks => {
         // console.log(stocks)
@@ -14,16 +14,16 @@ const loadStock = () =>{
         let i=0;
         stocks.forEach((stock) =>{
             const tr = document.createElement('tr')
-            fetch(`https://smart-soft.onrender.com/products/single/product/${stock.product}`)
+            fetch(`https://smart-soft-gold.vercel.app/products/single/product/${stock.product}`)
             .then(res => res.json())
             .then(product => {
                 
 
-            fetch(`https://smart-soft.onrender.com/products/cat/${product.category}/`)
+            fetch(`https://smart-soft-gold.vercel.app/products/cat/${product.category}/`)
             .then(res => res.json())
             .then(cat =>{
                 
-                fetch(`https://smart-soft.onrender.com/products/unit/${product.unit}/`)
+                fetch(`https://smart-soft-gold.vercel.app/products/unit/${product.unit}/`)
                 .then(res => res.json())
                 .then(unit => {
                     i++;

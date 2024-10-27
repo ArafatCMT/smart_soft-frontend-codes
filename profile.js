@@ -1,11 +1,11 @@
 const loadProfile = () =>{
     const ownerId = localStorage.getItem("ownerId")
 
-    fetch(`https://smart-soft.onrender.com/owners/profile/${ownerId}/`)
+    fetch(`https://smart-soft-gold.vercel.app/owners/profile/${ownerId}/`)
     .then(res => res.json())
     .then(profile =>{
         console.log(profile)
-        fetch(`https://smart-soft.onrender.com/owners/user/${ownerId}/`)
+        fetch(`https://smart-soft-gold.vercel.app/owners/user/${ownerId}/`)
         .then(res => res.json())
         .then(user =>{console.log(user)
 

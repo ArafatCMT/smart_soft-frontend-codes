@@ -5,7 +5,7 @@ const loadSupplier = () => {
   const parent = document.getElementById("tbody");
 
   fetch(
-    `https://smart-soft.onrender.com/peoples/all/supplier/?owner_id=${ownerId}`
+    `https://smart-soft-gold.vercel.app/peoples/all/supplier/?owner_id=${ownerId}`
   )
     .then((res) => res.json())
     .then((suppliers) => {
@@ -41,7 +41,7 @@ const loadDueReport = () => {
   const parent = document.getElementById("tbody");
 
   fetch(
-    `https://smart-soft.onrender.com/peoples/supplier/due/report/?owner_id=${ownerId}`
+    `https://smart-soft-gold.vercel.app/peoples/supplier/due/report/?owner_id=${ownerId}`
   )
     .then((res) => res.json())
     .then((reports) => {
@@ -51,7 +51,7 @@ const loadDueReport = () => {
       let i = 0;
       reports.forEach((report) => {
         fetch(
-          `https://smart-soft.onrender.com/peoples/edit/supplier/${report.supplier}/`,
+          `https://smart-soft-gold.vercel.app/peoples/edit/supplier/${report.supplier}/`,
           {
             method: "GET",
             headers: {
@@ -101,7 +101,7 @@ const addSupplier = (event) => {
 
   // console.log(JSON.stringify(supplierData))
 
-  fetch(`https://smart-soft.onrender.com/peoples/add/supplier/${id}/`, {
+  fetch(`https://smart-soft-gold.vercel.app/peoples/add/supplier/${id}/`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
