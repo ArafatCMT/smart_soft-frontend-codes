@@ -179,6 +179,9 @@ const addSale = (event) => {
       // Clear the flag after displaying the message
       sessionStorage.removeItem('saleAdded');
     }
+    if (sessionStorage.getItem('saleAdded') === 'false') {
+      sessionStorage.removeItem('saleAdded');
+    }
   });
 loadSaleReport()
 

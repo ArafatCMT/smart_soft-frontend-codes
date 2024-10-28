@@ -154,5 +154,8 @@ const addPurchase = (event) => {
       // Clear the flag after displaying the message
       sessionStorage.removeItem('purchaseAdded');
     }
+    if (sessionStorage.getItem('purchaseAdded') === 'false') {
+      sessionStorage.removeItem('purchaseAdded');
+    }
   });
 loadPurchaseReport()
