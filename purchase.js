@@ -127,35 +127,48 @@ const addPurchase = (event) => {
 
         const statusParam = new URLSearchParams(window.location.search).get("status");
 
-        // if (statusParam === 'success')
-        // {
-        //   sessionStorage.setItem('purchaseAdded', 'true');
-        // }
-        // if(statusParam === 'failed')
-        // {
-        //   sessionStorage.setItem('purchaseAdded', 'false');
-        // }
+        if (statusParam === 'success')
+        {
+          console.log('Success')
+          sessionStorage.setItem('purchaseAdded', 'true');
+        }
+        else if(statusParam === 'failed')
+        {
+          console.log('Failed')
+          sessionStorage.setItem('purchaseAdded', 'false');
+        }
       })
       .catch((err) => console.log(err));
   };
-  // window.addEventListener('load', () => {
-  //   if (sessionStorage.getItem('purchaseAdded') === 'true') {
-  //     on
-  //     toastr.options.positionClass = 'toast-top-right'; 
-  //     toastr.options.extendedTimeOut = 0;
-  //     toastr.options.timeOut = 1000;
-  //     toastr.options.fadeOut = 250;
-  //     toastr.options.fadeIn = 250;
-  //     toastr.options.iconClass = ''; 
+  window.addEventListener('load', () => {
+    if (sessionStorage.getItem('purchaseAdded') === 'true') {
+      toastr.options.positionClass = 'toast-top-right'; 
+      toastr.options.extendedTimeOut = 0;
+      toastr.options.timeOut = 1000;
+      toastr.options.fadeOut = 250;
+      toastr.options.fadeIn = 250;
+      toastr.options.iconClass = ''; 
 
       
-  //     toastr.success('Purchase completed successfully!');
+      toastr.success('Purchase completed successfully!');
 
       
-  //     sessionStorage.removeItem('purchaseAdded');
-  //   }
-  //   if (sessionStorage.getItem('purchaseAdded') === 'false') {
-  //     sessionStorage.removeItem('purchaseAdded');
-  //   }
-  // });
+      sessionStorage.removeItem('purchaseAdded');
+      console.log('Successfull')
+    }
+    else if (sessionStorage.getItem('purchaseAdded') === 'false') {
+      toastr.options.positionClass = 'toast-top-right'; 
+      toastr.options.extendedTimeOut = 0;
+      toastr.options.timeOut = 1000;
+      toastr.options.fadeOut = 250;
+      toastr.options.fadeIn = 250;
+      toastr.options.iconClass = '';
+      // Display the failure message
+      toastr.error('Purchase failed. Please try again!');
+
+      // Remove the session storage item
+      sessionStorage.removeItem('purchaseAdded');
+      console.log('Failed----');
+  }
+  });
 loadPurchaseReport()

@@ -145,14 +145,16 @@ const addSale = (event) => {
 
               const statusParam = new URLSearchParams(window.location.search).get("status");
 
-              // if (statusParam === 'success')
-              // {
-              //   sessionStorage.setItem('saleAdded', 'true');
-              // }
-              // if (statusParam === 'failed')
-              // {
-              //   sessionStorage.setItem('saleAdded', 'false');
-              // }
+              if (statusParam === 'success')
+              {
+                console.log('Success')
+                sessionStorage.setItem('saleAdded', 'true');
+              }
+              else if (statusParam === 'failed')
+              {
+                console.log('Failed')
+                sessionStorage.setItem('saleAdded', 'false');
+              }
             })
             .catch((err) => console.log(err));
         } else {
@@ -163,26 +165,36 @@ const addSale = (event) => {
       })
       .catch((err) => console.log(err));
   };
-  // window.addEventListener('load', () => {
-  //   if (sessionStorage.getItem('saleAdded') === 'true') {
-  //     // Toastr settings for top-right position
-  //     toastr.options.positionClass = 'toast-top-right'; // Set the position to top right
-  //     toastr.options.extendedTimeOut = 0;
-  //     toastr.options.timeOut = 1000;
-  //     toastr.options.fadeOut = 250;
-  //     toastr.options.fadeIn = 250;
-  //     toastr.options.iconClass = ''; // Removes the icon
+  window.addEventListener('load', () => {
+    if (sessionStorage.getItem('saleAdded') === 'true') {
+      toastr.options.positionClass = 'toast-top-right'; 
+      toastr.options.extendedTimeOut = 0;
+      toastr.options.timeOut = 1000;
+      toastr.options.fadeOut = 250;
+      toastr.options.fadeIn = 250;
+      toastr.options.iconClass = ''; 
 
-  //     // Display the success message
-  //     toastr.success('Sale completed successfully!');
+      toastr.success('Sale completed successfully!');
 
-  //     // Clear the flag after displaying the message
-  //     sessionStorage.removeItem('saleAdded');
-  //   }
-  //   if (sessionStorage.getItem('saleAdded') === 'false') {
-  //     sessionStorage.removeItem('saleAdded');
-  //   }
-  // });
+      
+      sessionStorage.removeItem('saleAdded');
+      console.log('SuccessFull')
+    }
+    else if (sessionStorage.getItem('saleAdded') === 'false') {
+      toastr.options.positionClass = 'toast-top-right'; 
+      toastr.options.extendedTimeOut = 0;
+      toastr.options.timeOut = 1000;
+      toastr.options.fadeOut = 250;
+      toastr.options.fadeIn = 250;
+      toastr.options.iconClass = ''; 
+
+      toastr.error('Sale failed. Please try again!');
+      
+      sessionStorage.removeItem('saleAdded');
+      console.log('Failed---')
+
+    }
+  });
 loadSaleReport()
 
 
