@@ -138,10 +138,21 @@ const addSale = (event) => {
             .then((res) => res.json())
             .then((data) => {
 
-              sessionStorage.setItem('saleAdded', 'true');
-              form.reset();
+              
+              // form.reset();
 
               window.location.href = `https://smart-soft-gold.vercel.app/purchases/pay/${data.id}/${2}`;
+
+              const statusParam = new URLSearchParams(window.location.search).get("status");
+
+              if (statusParam == 'success')
+              {
+                sessionStorage.setItem('saleAdded', 'true');
+              }
+              if (statusParam === 'failed')
+              {
+                sessionStorage.setItem('saleAdded', 'false');
+              }
             })
             .catch((err) => console.log(err));
         } else {

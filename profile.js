@@ -4,10 +4,11 @@ const loadProfile = () =>{
     fetch(`https://smart-soft-gold.vercel.app/owners/profile/${ownerId}/`)
     .then(res => res.json())
     .then(profile =>{
-        console.log(profile)
+        // console.log(profile)
         fetch(`https://smart-soft-gold.vercel.app/owners/user/${ownerId}/`)
         .then(res => res.json())
-        .then(user =>{console.log(user)
+        .then(user =>{
+            // console.log(user)
 
             document.getElementById("name").innerHTML = `${user.first_name+" "+user.last_name}`
             document.getElementById("email").innerHTML = `${user.email}`

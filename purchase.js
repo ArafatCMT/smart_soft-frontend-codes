@@ -122,13 +122,19 @@ const addPurchase = (event) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        // Set a flag in sessionStorage indicating a successful purchase
-        sessionStorage.setItem('purchaseAdded', 'true');
-  
-        // Optionally reset the form if needed
-        form.reset();
 
         window.location.href = `https://smart-soft-gold.vercel.app/purchases/pay/${data.id}/${3}`;
+
+        const statusParam = new URLSearchParams(window.location.search).get("status");
+
+        if (statusParam === 'success')
+        {
+          sessionStorage.setItem('purchaseAdded', 'true');
+        }
+        if(statusParam === 'failed')
+        {
+          sessionStorage.setItem('purchaseAdded', 'false');
+        }
       })
       .catch((err) => console.log(err));
   };

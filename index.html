@@ -467,7 +467,7 @@
       const ViewDemo = (event) => {
         event.preventDefault();
         const username = "admin";
-        const password = "pos12345";
+        const password = "emon1234"
 
         const loginData = {
           username: username,
@@ -475,7 +475,7 @@
         };
         
         // console.log(loginData);
-        fetch("https://smart-soft.onrender.com/owners/login/", {
+        fetch("https://smart-soft-gold.vercel.app/owners/login/", {
           method: "POST",
           headers: { "content-type": "application/json" },
           body: JSON.stringify(loginData),
@@ -485,7 +485,7 @@
             if (data.token && data.owner_id) {
               localStorage.setItem("authToken", data.token);
               localStorage.setItem("ownerId", data.owner_id);
-              window.location.href = "./dashboard.html";
+              window.location.href = "./dashboard.html?id=1";
             } else {
               document.getElementById("error").innerText =
                 "Invalid username & password";
