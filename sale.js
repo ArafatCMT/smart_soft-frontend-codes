@@ -143,30 +143,31 @@ const addSale = (event) => {
 
               window.location.href = `https://smart-soft-gold.vercel.app/purchases/pay/${data.id}/${2}`;
 
-              const statusParam = new URLSearchParams(window.location.search).get("status");
+              // const statusParam = new URLSearchParams(window.location.search).get("status");
 
-              if (statusParam === 'success')
-              {
-                console.log('Success')
-                sessionStorage.setItem('saleAdded', 'true');
-              }
-              else if (statusParam === 'failed')
-              {
-                console.log('Failed')
-                sessionStorage.setItem('saleAdded', 'false');
-              }
             })
             .catch((err) => console.log(err));
         } else {
           alert("Not Available Stock!");
-          // Redirect to the sale page even if there's no stock
           window.location.href = "./sale.html?id=2";
         }
       })
       .catch((err) => console.log(err));
   };
-  window.addEventListener('load', () => {
-    if (sessionStorage.getItem('saleAdded') === 'true') {
+window.addEventListener('load', () => {
+  const statusParam = new URLSearchParams(window.location.search).get("status");
+  if (statusParam === 'success')
+    {
+      console.log('Success')
+      sessionStorage.setItem('saleAdded', 'true');
+    }
+  else if (statusParam === 'failed')
+    {
+      console.log('Failed')
+      sessionStorage.setItem('saleAdded', 'false');
+    }
+
+  if (sessionStorage.getItem('saleAdded') === 'true') {
       toastr.options.positionClass = 'toast-top-right'; 
       toastr.options.extendedTimeOut = 0;
       toastr.options.timeOut = 1000;
