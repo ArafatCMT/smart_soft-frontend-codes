@@ -145,14 +145,14 @@ const addSale = (event) => {
 
               const statusParam = new URLSearchParams(window.location.search).get("status");
 
-              if (statusParam == 'success')
-              {
-                sessionStorage.setItem('saleAdded', 'true');
-              }
-              if (statusParam === 'failed')
-              {
-                sessionStorage.setItem('saleAdded', 'false');
-              }
+              // if (statusParam === 'success')
+              // {
+              //   sessionStorage.setItem('saleAdded', 'true');
+              // }
+              // if (statusParam === 'failed')
+              // {
+              //   sessionStorage.setItem('saleAdded', 'false');
+              // }
             })
             .catch((err) => console.log(err));
         } else {
@@ -163,26 +163,26 @@ const addSale = (event) => {
       })
       .catch((err) => console.log(err));
   };
-  window.addEventListener('load', () => {
-    if (sessionStorage.getItem('saleAdded') === 'true') {
-      // Toastr settings for top-right position
-      toastr.options.positionClass = 'toast-top-right'; // Set the position to top right
-      toastr.options.extendedTimeOut = 0;
-      toastr.options.timeOut = 1000;
-      toastr.options.fadeOut = 250;
-      toastr.options.fadeIn = 250;
-      toastr.options.iconClass = ''; // Removes the icon
+  // window.addEventListener('load', () => {
+  //   if (sessionStorage.getItem('saleAdded') === 'true') {
+  //     // Toastr settings for top-right position
+  //     toastr.options.positionClass = 'toast-top-right'; // Set the position to top right
+  //     toastr.options.extendedTimeOut = 0;
+  //     toastr.options.timeOut = 1000;
+  //     toastr.options.fadeOut = 250;
+  //     toastr.options.fadeIn = 250;
+  //     toastr.options.iconClass = ''; // Removes the icon
 
-      // Display the success message
-      toastr.success('Sale completed successfully!');
+  //     // Display the success message
+  //     toastr.success('Sale completed successfully!');
 
-      // Clear the flag after displaying the message
-      sessionStorage.removeItem('saleAdded');
-    }
-    if (sessionStorage.getItem('saleAdded') === 'false') {
-      sessionStorage.removeItem('saleAdded');
-    }
-  });
+  //     // Clear the flag after displaying the message
+  //     sessionStorage.removeItem('saleAdded');
+  //   }
+  //   if (sessionStorage.getItem('saleAdded') === 'false') {
+  //     sessionStorage.removeItem('saleAdded');
+  //   }
+  // });
 loadSaleReport()
 
 

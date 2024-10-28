@@ -127,35 +127,35 @@ const addPurchase = (event) => {
 
         const statusParam = new URLSearchParams(window.location.search).get("status");
 
-        if (statusParam === 'success')
-        {
-          sessionStorage.setItem('purchaseAdded', 'true');
-        }
-        if(statusParam === 'failed')
-        {
-          sessionStorage.setItem('purchaseAdded', 'false');
-        }
+        // if (statusParam === 'success')
+        // {
+        //   sessionStorage.setItem('purchaseAdded', 'true');
+        // }
+        // if(statusParam === 'failed')
+        // {
+        //   sessionStorage.setItem('purchaseAdded', 'false');
+        // }
       })
       .catch((err) => console.log(err));
   };
-  window.addEventListener('load', () => {
-    if (sessionStorage.getItem('purchaseAdded') === 'true') {
-      // Toastr settings for top-right position
-      toastr.options.positionClass = 'toast-top-right'; // Set the position to top right
-      toastr.options.extendedTimeOut = 0;
-      toastr.options.timeOut = 1000;
-      toastr.options.fadeOut = 250;
-      toastr.options.fadeIn = 250;
-      toastr.options.iconClass = ''; // Removes the icon
+  // window.addEventListener('load', () => {
+  //   if (sessionStorage.getItem('purchaseAdded') === 'true') {
+  //     on
+  //     toastr.options.positionClass = 'toast-top-right'; 
+  //     toastr.options.extendedTimeOut = 0;
+  //     toastr.options.timeOut = 1000;
+  //     toastr.options.fadeOut = 250;
+  //     toastr.options.fadeIn = 250;
+  //     toastr.options.iconClass = ''; 
 
-      // Display the success message
-      toastr.success('Purchase completed successfully!');
+      
+  //     toastr.success('Purchase completed successfully!');
 
-      // Clear the flag after displaying the message
-      sessionStorage.removeItem('purchaseAdded');
-    }
-    if (sessionStorage.getItem('purchaseAdded') === 'false') {
-      sessionStorage.removeItem('purchaseAdded');
-    }
-  });
+      
+  //     sessionStorage.removeItem('purchaseAdded');
+  //   }
+  //   if (sessionStorage.getItem('purchaseAdded') === 'false') {
+  //     sessionStorage.removeItem('purchaseAdded');
+  //   }
+  // });
 loadPurchaseReport()
