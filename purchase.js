@@ -115,43 +115,46 @@ const addPurchase = (event) => {
   const payable = formData.get("payable");
   const paid = formData.get("paid");
 
-  const purchaseData = {
-    supplier: supplier,
-    product: product,
-    quentity: quentity,
-    payable: payable,
-    paid: paid,
-  };
-
-  fetch(`https://smart-soft-gold.vercel.app/purchases/product/${id}/`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Token ${token}`,
-    },
-    body: JSON.stringify(purchaseData),
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      window.location.href = `https://smart-soft-gold.vercel.app/purchases/pay/${
-        data.id
-      }/${3}`;
+  if(quentity <=0 || payable <= 0 || paid <= 0)
+  {
+      ShowMassage()
+  }
+  else
+  {
+    // console.log("hello")
+    const purchaseData = {
+      supplier: supplier,
+      product: product,
+      quentity: quentity,
+      payable: payable,
+      paid: paid,
+    };
+  
+    fetch(`https://smart-soft-gold.vercel.app/purchases/product/${id}/`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Token ${token}`,
+      },
+      body: JSON.stringify(purchaseData),
     })
-    .catch((err) => console.log(err));
+      .then((res) => res.json())
+      .then((data) => {
+        window.location.href = `https://smart-soft-gold.vercel.app/purchases/pay/${
+          data.id
+        }/${3}`;
+      })
+      .catch((err) => console.log(err));
+  }
+
 };
+
+
 window.addEventListener("load", () => {
   const statusParam = new URLSearchParams(window.location.search).get("status");
 
   if (statusParam === "success") {
-    console.log("Success");
-    sessionStorage.setItem("purchaseAdded", "true");
-  } else if (statusParam === "failed") {
-    console.log("Failed");
-    sessionStorage.setItem("purchaseAdded", "false");
-  }
-
-  
-  if (sessionStorage.getItem("purchaseAdded") === "true") {
+    // sessionStorage.setItem("purchaseAdded", "true");
     toastr.options.positionClass = "toast-top-right";
     toastr.options.extendedTimeOut = 0;
     toastr.options.timeOut = 1000;
@@ -160,22 +163,53 @@ window.addEventListener("load", () => {
     toastr.options.iconClass = "";
 
     toastr.success("Purchase completed successfully!");
+  } 
+  else if (statusParam === "failed") {
 
-    sessionStorage.removeItem("purchaseAdded");
-    console.log("Successfull");
-  } else if (sessionStorage.getItem("purchaseAdded") === "false") {
+    // sessionStorage.setItem("purchaseAdded", "false");
     toastr.options.positionClass = "toast-top-right";
     toastr.options.extendedTimeOut = 0;
     toastr.options.timeOut = 1000;
     toastr.options.fadeOut = 250;
     toastr.options.fadeIn = 250;
     toastr.options.iconClass = "";
-    // Display the failure message
     toastr.error("Purchase failed. Please try again!");
-
-    // Remove the session storage item
-    sessionStorage.removeItem("purchaseAdded");
-    console.log("Failed----");
   }
+
+  
+  // if (sessionStorage.getItem("purchaseAdded") === "true") {
+  //   toastr.options.positionClass = "toast-top-right";
+  //   toastr.options.extendedTimeOut = 0;
+  //   toastr.options.timeOut = 1000;
+  //   toastr.options.fadeOut = 250;
+  //   toastr.options.fadeIn = 250;
+  //   toastr.options.iconClass = "";
+
+  //   toastr.success("Purchase completed successfully!");
+
+  //   sessionStorage.removeItem("purchaseAdded");
+  // } 
+  // else if (sessionStorage.getItem("purchaseAdded") === "false") {
+  //   toastr.options.positionClass = "toast-top-right";
+  //   toastr.options.extendedTimeOut = 0;
+  //   toastr.options.timeOut = 1000;
+  //   toastr.options.fadeOut = 250;
+  //   toastr.options.fadeIn = 250;
+  //   toastr.options.iconClass = "";
+  //   toastr.error("Purchase failed. Please try again!");
+
+  //   sessionStorage.removeItem("purchaseAdded");
+  // }
 });
+
+const ShowMassage = () =>{
+  toastr.options.positionClass = 'toast-top-right'; 
+      toastr.options.extendedTimeOut = 0;
+      toastr.options.timeOut = 1000;
+      toastr.options.fadeOut = 250;
+      toastr.options.fadeIn = 250;
+      toastr.options.iconClass = ''; 
+
+      toastr.error('Please ensure both the amount and quantity are positive numbers!');
+}
 loadPurchaseReport();

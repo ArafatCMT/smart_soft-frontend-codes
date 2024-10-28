@@ -106,68 +106,75 @@ const addSale = (event) => {
     const quentity = formData.get('quentity');
     const receivable = formData.get('receivable');
     const paid = formData.get('paid');
+
+    if(quentity <=0 || receivable <= 0 || paid <= 0)
+    {
+      massage()
+    }
+    else
+    {
+      // console.log('hello')
+      const saleData = {
+        customer: cus,
+        product: product,
+        quentity: quentity,
+        receivable: receivable,
+        paid: paid,
+      };
+      
   
-    const saleData = {
-      customer: cus,
-      product: product,
-      quentity: quentity,
-      receivable: receivable,
-      paid: paid,
-    };
-    
-    
-
-    fetch(`https://smart-soft-gold.vercel.app/stocks/check/${product}/`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Token ${token}`,
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.available_stock >= quentity) {
-          fetch(`https://smart-soft-gold.vercel.app/purchases/sale/${id}/`, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Token ${token}`,
-            },
-            body: JSON.stringify(saleData),
-          })
-            .then((res) => res.json())
-            .then((data) => {
-
-              
-              // form.reset();
-
-              window.location.href = `https://smart-soft-gold.vercel.app/purchases/pay/${data.id}/${2}`;
-
-              // const statusParam = new URLSearchParams(window.location.search).get("status");
-
-            })
-            .catch((err) => console.log(err));
-        } else {
-          alert("Not Available Stock!");
-          window.location.href = "./sale.html?id=2";
-        }
+      fetch(`https://smart-soft-gold.vercel.app/stocks/check/${product}/`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Token ${token}`,
+        },
       })
-      .catch((err) => console.log(err));
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.available_stock >= quentity) {
+            fetch(`https://smart-soft-gold.vercel.app/purchases/sale/${id}/`, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Token ${token}`,
+              },
+              body: JSON.stringify(saleData),
+            })
+              .then((res) => res.json())
+              .then((data) => {
+  
+                
+                // form.reset();
+  
+                window.location.href = `https://smart-soft-gold.vercel.app/purchases/pay/${data.id}/${2}`;
+  
+              })
+              .catch((err) => console.log(err));
+          } else {
+            // alert("Not Available Stock!");
+            // window.location.href = "./sale.html?id=2";
+
+            toastr.options.positionClass = 'toast-top-right'; 
+            toastr.options.extendedTimeOut = 0;
+            toastr.options.timeOut = 1000;
+            toastr.options.fadeOut = 250;
+            toastr.options.fadeIn = 250;
+            toastr.options.iconClass = ''; 
+
+            toastr.error('Product Not Available in Stock!');
+          }
+        })
+        .catch((err) => console.log(err));
+    }
+
   };
+
 window.addEventListener('load', () => {
   const statusParam = new URLSearchParams(window.location.search).get("status");
   if (statusParam === 'success')
     {
-      console.log('Success')
-      sessionStorage.setItem('saleAdded', 'true');
-    }
-  else if (statusParam === 'failed')
-    {
-      console.log('Failed')
-      sessionStorage.setItem('saleAdded', 'false');
-    }
-
-  if (sessionStorage.getItem('saleAdded') === 'true') {
+      // sessionStorage.setItem('saleAdded', 'true');
       toastr.options.positionClass = 'toast-top-right'; 
       toastr.options.extendedTimeOut = 0;
       toastr.options.timeOut = 1000;
@@ -177,11 +184,11 @@ window.addEventListener('load', () => {
 
       toastr.success('Sale completed successfully!');
 
-      
-      sessionStorage.removeItem('saleAdded');
-      console.log('SuccessFull')
+      // sessionStorage.removeItem('saleAdded');
     }
-    else if (sessionStorage.getItem('saleAdded') === 'false') {
+  else if (statusParam === 'failed')
+    {
+      // sessionStorage.setItem('saleAdded', 'false');
       toastr.options.positionClass = 'toast-top-right'; 
       toastr.options.extendedTimeOut = 0;
       toastr.options.timeOut = 1000;
@@ -191,11 +198,47 @@ window.addEventListener('load', () => {
 
       toastr.error('Sale failed. Please try again!');
       
-      sessionStorage.removeItem('saleAdded');
-      console.log('Failed---')
-
+      // sessionStorage.removeItem('saleAdded');
     }
+
+  // if (sessionStorage.getItem('saleAdded') === 'true') {
+  //     toastr.options.positionClass = 'toast-top-right'; 
+  //     toastr.options.extendedTimeOut = 0;
+  //     toastr.options.timeOut = 1000;
+  //     toastr.options.fadeOut = 250;
+  //     toastr.options.fadeIn = 250;
+  //     toastr.options.iconClass = ''; 
+
+  //     toastr.success('Sale completed successfully!');
+
+      
+  //     sessionStorage.removeItem('saleAdded');
+  //   }
+  //   else if (sessionStorage.getItem('saleAdded') === 'false') {
+  //     toastr.options.positionClass = 'toast-top-right'; 
+  //     toastr.options.extendedTimeOut = 0;
+  //     toastr.options.timeOut = 1000;
+  //     toastr.options.fadeOut = 250;
+  //     toastr.options.fadeIn = 250;
+  //     toastr.options.iconClass = ''; 
+
+  //     toastr.error('Sale failed. Please try again!');
+      
+  //     sessionStorage.removeItem('saleAdded');
+
+  //   }
   });
+
+const massage = () =>{
+      toastr.options.positionClass = 'toast-top-right'; 
+      toastr.options.extendedTimeOut = 0;
+      toastr.options.timeOut = 1000;
+      toastr.options.fadeOut = 250;
+      toastr.options.fadeIn = 250;
+      toastr.options.iconClass = ''; 
+
+      toastr.error('Please ensure both the amount and quantity are positive numbers!');
+}
 loadSaleReport()
 
 
