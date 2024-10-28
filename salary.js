@@ -83,32 +83,46 @@ const addSalary = (event) => {
   const amount = formData.get("amount");
   // console.log(employee.valueOf(), {"amount":amount})
 
-  const salaryData = {
-    employee: employee.valueOf(),
-    paid_amount: amount,
-  };
+  if(amount <= 0)
+  {
+    toastr.options.positionClass = "toast-top-right"; // Set the position to top right
+    toastr.options.extendedTimeOut = 0;
+    toastr.options.timeOut = 1000;
+    toastr.options.fadeOut = 250;
+    toastr.options.fadeIn = 250;
+    toastr.options.iconClass = ""; 
 
-  // console.log(JSON.stringify(salaryData))
-  fetch(`https://smart-soft-gold.vercel.app/peoples/salary/${id}/`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Token ${token}`,
-    },
-    body: JSON.stringify(salaryData),
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      // Set a flag in sessionStorage indicating a successful salary payment
-      sessionStorage.setItem("salaryPaid", "true");
-
-      // Optionally reset the form if needed
-      form.reset();
-
-      // Redirect to the salary page to show the success message
-      window.location.href = "./salary.html?id=12";
+    // Display the success message
+    toastr.error("Please enter a valid amount!");
+  }
+  else
+  {
+    const salaryData = {
+      employee: employee.valueOf(),
+      paid_amount: amount,
+    };
+  
+    // console.log(JSON.stringify(salaryData))
+    fetch(`https://smart-soft-gold.vercel.app/peoples/salary/${id}/`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Token ${token}`,
+      },
+      body: JSON.stringify(salaryData),
     })
-    .catch((err) => console.log(err));
+      .then((res) => res.json())
+      .then((data) => {
+
+        sessionStorage.setItem("salaryPaid", "true");
+  
+        form.reset();
+        window.location.href = "./salary.html?id=12";
+      })
+      .catch((err) => console.log(err));
+  }
+
+ 
 };
 window.addEventListener("load", () => {
   if (sessionStorage.getItem("salaryPaid") === "true") {
@@ -118,12 +132,11 @@ window.addEventListener("load", () => {
     toastr.options.timeOut = 1000;
     toastr.options.fadeOut = 250;
     toastr.options.fadeIn = 250;
-    toastr.options.iconClass = ""; // Removes the icon
+    toastr.options.iconClass = ""; 
 
     // Display the success message
     toastr.success("Salary paid successfully!");
 
-    // Clear the flag after displaying the message
     sessionStorage.removeItem("salaryPaid");
   }
 });
