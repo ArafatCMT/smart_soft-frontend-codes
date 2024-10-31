@@ -96,10 +96,7 @@ const handleLogout = () => {
 const ownerId = localStorage.getItem("ownerId")
 // console.log(ownerId)
 
-if(ownerId){
-  document.getElementById("demo").style.display = 'none';
-}
-// if(ownerId === null){
-//   console.log(ownerId)
-//   document.getElementById("demo").style.display = 'flex'
+// if(ownerId){
+//   document.getElementById("demo").style.display = 'none';
 // }
+

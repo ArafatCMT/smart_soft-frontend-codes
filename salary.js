@@ -124,9 +124,9 @@ const addSalary = (event) => {
 
  
 };
+
 window.addEventListener("load", () => {
   if (sessionStorage.getItem("salaryPaid") === "true") {
-    // Toastr settings for top-right position
     toastr.options.positionClass = "toast-top-right"; // Set the position to top right
     toastr.options.extendedTimeOut = 0;
     toastr.options.timeOut = 1000;

@@ -38,7 +38,6 @@ const loadProducts = () =>{
                                     <td>${product.sale_price} TK</td>
                                     <td>${product.purchase_cost} TK</td>
                                     
-                                    
                                 `
                                 parent.appendChild(tr)
                                             })

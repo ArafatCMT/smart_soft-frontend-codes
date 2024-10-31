@@ -54,7 +54,7 @@ const addUnit = (event) => {
   })
     .then((res) => res.json())
     .then((data) => {
-      // Set a flag in sessionStorage indicating a successful unit addition
+      
       sessionStorage.setItem("unitAdded", "true");
 
       // Optionally reset the form if needed

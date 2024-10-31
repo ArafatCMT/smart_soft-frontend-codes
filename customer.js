@@ -136,4 +136,4 @@ const addCustomer = (event) => {
   });
 // loadCustomer()
 
-// Here's is my function but the problem is I have to click on the submit button twice to show the success message
+

@@ -83,7 +83,7 @@ const addCategory = (event) => {
       toastr.options.timeOut = 1000;
       toastr.options.fadeOut = 250;
       toastr.options.fadeIn = 250;
-      toastr.options.iconClass = '';  // Removes the icon
+      toastr.options.iconClass = '';  
   
       // Display the success message without an icon
       toastr.success('Category added successfully!');

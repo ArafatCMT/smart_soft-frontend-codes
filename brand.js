@@ -14,7 +14,7 @@ const loadbrand = () => {
       }
       let i = 0;
       brands.forEach((brand) => {
-        // i++;
+        
         // console.log(unit)
         fetch(
           `https://smart-soft-gold.vercel.app/products/brands/${brand.id}/?owner_id=${ownerId}`

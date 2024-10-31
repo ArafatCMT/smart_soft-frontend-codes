@@ -85,7 +85,7 @@ const addEmployee = (event) => {
       // Display the success message
       toastr.success('Employee added successfully!');
 
-      // Clear the flag after displaying the message
+      
       sessionStorage.removeItem('employeeAdded');
     }
   });

@@ -11,6 +11,7 @@ fetch("navbar.html")
     // console.log(token)
 
     if (token){
+        document.getElementById("demo").style.display = 'none';
         navLeftSideElement.innerHTML += `
                             <li class="nav-item">
                                 <a class="nav-link active mx-lg-2" aria-current="page" href="./index.html">Home</a>
